@@ -1,0 +1,35 @@
+# Maven
+target/
+*.class
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Logs
+*.log
+
+# Variables de entorno
+.env
+
+# Configuración local
+application-local.properties
+application-local.yml
+
+
+
+
+
+
+
+
+
+
+
+
