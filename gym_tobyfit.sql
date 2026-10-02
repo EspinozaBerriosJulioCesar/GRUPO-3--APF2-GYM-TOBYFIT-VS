@@ -3,32 +3,32 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 07-09-2026 a las 23:02:26
+-- Base de datos: gym_tobyfit
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de datos: `gym_tobyfit`
---
+SET NAMES utf8mb4;
 
 -- --------------------------------------------------------
+-- CREAR Y SELECCIONAR BASE DE DATOS
+-- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `productos`
---
+CREATE DATABASE IF NOT EXISTS `gym_tobyfit`
+DEFAULT CHARACTER SET utf8mb4
+COLLATE utf8mb4_general_ci;
+
+USE `gym_tobyfit`;
+
+-- --------------------------------------------------------
+-- TABLA productos
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `productos`;
 
 CREATE TABLE `productos` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `categoria` varchar(50) NOT NULL,
   `genero` varchar(20) NOT NULL,
@@ -36,14 +36,17 @@ CREATE TABLE `productos` (
   `imagen_principal` varchar(255) NOT NULL,
   `imagenes` text DEFAULT NULL,
   `modelos` text DEFAULT NULL,
-  `activo` tinyint(1) DEFAULT 1
+  `activo` tinyint(1) DEFAULT 1,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `productos`
---
+-- --------------------------------------------------------
+-- DATOS productos
+-- --------------------------------------------------------
 
-INSERT INTO `productos` (`id`, `nombre`, `categoria`, `genero`, `precio`, `imagen_principal`, `imagenes`, `modelos`, `activo`) VALUES
+INSERT INTO `productos`
+(`id`, `nombre`, `categoria`, `genero`, `precio`, `imagen_principal`, `imagenes`, `modelos`, `activo`)
+VALUES
 (1, 'GYMRAT – Polo Oversize', 'polo', 'hombre', 49.00, '/img/polo_hombre.png', '[\"/img/polo_hombre.png\", \"/img/polo_hombre_1.png\"]', '[\"Negro\"]', 1),
 (2, 'GYMRAT – Polo Oversize', 'polo', 'mujer', 45.00, '/img/polo_mujer.webp', '[\"/img/polo_mujer.webp\", \"/img/polo_mujer_1.webp\"]', '[\"Negro\", \"Gris\"]', 1),
 (3, 'GymRat – Jogger Oversize', 'buzo', 'hombre', 85.00, '/img/buzo_hombre.jpg', '[\"/img/buzo_hombre.jpg\", \"/img/buzo_hombre_1.jpg\"]', '[\"Negro\", \"Rojo\"]', 1),
@@ -61,66 +64,38 @@ INSERT INTO `productos` (`id`, `nombre`, `categoria`, `genero`, `precio`, `image
 (15, 'Pre Entreno Nox Up', 'preentrenos', 'todos', 90.00, '/img/preentreno_noxup.webp', '[\"/img/preentreno_noxup.webp\", \"/img/preentreno_noxup_1.webp\"]', '[\"600 gr\"]', 1);
 
 -- --------------------------------------------------------
+-- TABLA usuarios
+-- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `usuarios`
---
+DROP TABLE IF EXISTS `usuarios`;
 
 CREATE TABLE `usuarios` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `apellido` varchar(50) NOT NULL,
   `contrasena` varchar(255) NOT NULL,
   `correo` varchar(100) NOT NULL,
   `edad` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `rol` enum('ADMIN','USUARIO') DEFAULT NULL,
-  `telefono` varchar(15) NOT NULL
+  `telefono` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_correo` (`correo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `usuarios`
---
+-- --------------------------------------------------------
+-- DATOS usuarios
+-- --------------------------------------------------------
 
-INSERT INTO `usuarios` (`id`, `apellido`, `contrasena`, `correo`, `edad`, `nombre`, `rol`, `telefono`) VALUES
+INSERT INTO `usuarios`
+(`id`, `apellido`, `contrasena`, `correo`, `edad`, `nombre`, `rol`, `telefono`)
+VALUES
 (1, 'Alvarez Bacilio', '$2a$10$0M/ufessIxAZA1LnhAYsQe2yA/Xpc.KbVNfTZ1ymQYB4Bs74kyoH6', 'juan@gmail.com', 20, 'Juan Carlos Henry', 'USUARIO', '925966285'),
 (2, 'Rivera', '$2a$10$ExYCr0GnUQ77ma3of5ZDLO00PiHHvRpp8PQ5eLxYVCLqQtnPhuLqm', 'elias@gmail.com', 20, 'Elias', 'USUARIO', '972154855'),
 (3, 'Tiznado', '$2a$10$KHWGZqfC1C6rRMVUNMcipeIf3DaXzzkhrTYJWx.vb6qabjV2vsudm', 'fabrizio@gmail.com', 20, 'Fabrizio', 'USUARIO', '915990023'),
 (4, 'Torrez', '$2a$10$3D3/.TxuK.Y.33R0cwdi3uiN0CsDdVg96eANaeZdUhKfCUM2V.CG6', 'willian@gmail.com', 20, 'Willian', 'USUARIO', '947219716');
 
---
--- Índices para tablas volcadas
---
+-- --------------------------------------------------------
+-- FINALIZAR
+-- --------------------------------------------------------
 
---
--- Indices de la tabla `productos`
---
-ALTER TABLE `productos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UKcdmw5hxlfj78uf4997i3qyyw5` (`correo`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `productos`
---
-ALTER TABLE `productos`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
