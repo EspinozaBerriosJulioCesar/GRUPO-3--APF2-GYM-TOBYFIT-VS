@@ -4,6 +4,7 @@ import com.gym.gym_tobifit.models.Producto;
 import com.gym.gym_tobifit.services.ProductoService;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -22,14 +23,17 @@ public class ProductoApiController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Producto> crearProducto(@RequestBody Producto producto) { return ResponseEntity.ok(productoService.guardarProducto(producto)); }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Producto> actualizarProducto(@PathVariable Long id, @RequestBody Producto producto) {
         producto.setId(id);
         return ResponseEntity.ok(productoService.actualizarProducto(producto));
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> eliminarProducto(@PathVariable Long id) { productoService.eliminarProducto(id); return ResponseEntity.ok().build(); }
 }
