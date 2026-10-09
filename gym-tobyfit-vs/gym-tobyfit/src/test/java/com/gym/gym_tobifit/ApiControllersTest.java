@@ -16,6 +16,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import com.gym.gym_tobifit.security.JwtFilter;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collections;
@@ -26,7 +29,9 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(controllers = { ProductoApiController.class, UsuarioApiController.class })
+// Pruebas originales del CRUD. La seguridad se verifica con filtros activos en JwtSecurityIntegrationTest.
+@WebMvcTest(controllers = { ProductoApiController.class, UsuarioApiController.class },
+        excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = JwtFilter.class))
 @AutoConfigureMockMvc(addFilters = false)
 class ApiControllersTest {
     @Autowired

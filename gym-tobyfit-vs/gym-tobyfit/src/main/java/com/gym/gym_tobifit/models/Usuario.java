@@ -1,6 +1,7 @@
 package com.gym.gym_tobifit.models;
 import jakarta.persistence.*;
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity @Table(name="usuarios") @Data @NoArgsConstructor @AllArgsConstructor
 public class Usuario {
  @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id;
@@ -9,6 +10,8 @@ public class Usuario {
  @Column(nullable=false,length=15) private String telefono;
  @Column(nullable=false) private Integer edad;
  @Column(nullable=false,unique=true,length=100) private String correo;
+ @JsonProperty(access=JsonProperty.Access.WRITE_ONLY)
+ @ToString.Exclude
  @Column(nullable=false,length=255) private String contrasena;
  @Enumerated(EnumType.STRING) private Rol rol;
  public enum Rol { USUARIO, ADMIN }
