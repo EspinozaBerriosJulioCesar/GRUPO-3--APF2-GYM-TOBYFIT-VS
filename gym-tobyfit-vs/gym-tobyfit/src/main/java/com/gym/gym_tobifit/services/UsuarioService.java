@@ -5,6 +5,7 @@ import com.gym.gym_tobifit.models.Usuario;
 import com.gym.gym_tobifit.repositories.UsuarioRepository;
 
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -25,6 +26,14 @@ public class UsuarioService {
         Usuario actual = usuarioRepository.findById(usuario.getId())
                 .orElseThrow(() ->
                         new RuntimeException("Usuario no encontrado"));
+
+        if (usuario.getNombre() != null) {
+            actual.setNombre(usuario.getNombre());
+        }
+
+        if (usuario.getApellido() != null) {
+            actual.setApellido(usuario.getApellido());
+        }
 
         if (usuario.getTelefono() != null) {
             actual.setTelefono(usuario.getTelefono());
