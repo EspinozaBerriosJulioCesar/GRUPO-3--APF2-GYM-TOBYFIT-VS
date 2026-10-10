@@ -1,20 +1,24 @@
-
 package com.gym.gym_tobifit.services;
+
+import java.util.List;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.gym.gym_tobifit.models.Usuario;
 import com.gym.gym_tobifit.repositories.UsuarioRepository;
-
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
+    public UsuarioService(
+            UsuarioRepository usuarioRepository,
+            PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<Usuario> findAll() {
@@ -22,7 +26,6 @@ public class UsuarioService {
     }
 
     public Usuario actualizarUsuario(Usuario usuario) {
-
         Usuario actual = usuarioRepository.findById(usuario.getId())
                 .orElseThrow(() ->
                         new RuntimeException("Usuario no encontrado"));
@@ -54,8 +57,20 @@ public class UsuarioService {
         return usuarioRepository.save(actual);
     }
 
-    public void eliminarUsuario(Long id) {
+    public void restablecerContrasena(
+            String correo,
+            String nuevaContrasena) {
+        Usuario usuario = usuarioRepository.findByCorreo(correo)
+                .orElseThrow(() ->
+                        new RuntimeException("Usuario no encontrado"));
 
+        usuario.setContrasena(
+                passwordEncoder.encode(nuevaContrasena));
+
+        usuarioRepository.save(usuario);
+    }
+
+    public void eliminarUsuario(Long id) {
         if (!usuarioRepository.existsById(id)) {
             throw new RuntimeException("Usuario no encontrado");
         }

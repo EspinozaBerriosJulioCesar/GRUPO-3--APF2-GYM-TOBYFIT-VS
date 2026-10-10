@@ -1,0 +1,229 @@
+ 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym TobyFit | Tu mejor versión</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #101214;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: #181b1e;
+            border-bottom: 2px solid #a3e635;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #a3e635;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+        }
+
+        nav a:hover {
+            color: #a3e635;
+        }
+
+        .hero {
+            min-height: 420px;
+            padding: 90px 8%;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(110deg, #101214, #252d25);
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 65px);
+            line-height: 1.1;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #a3e635;
+        }
+
+        .hero p {
+            color: #c6c9c6;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #a3e635;
+            color: #101214;
+            padding: 13px 25px;
+            border-radius: 7px;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .section {
+            padding: 65px 8%;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #b5b9b5;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: #1b1f22;
+            border: 1px solid #333a33;
+            border-radius: 12px;
+            padding: 26px;
+        }
+
+        .card .icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            color: #a3e635;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #c6c9c6;
+        }
+
+        .contact {
+            text-align: center;
+            background: #1b1f22;
+        }
+
+        footer {
+            padding: 22px;
+            text-align: center;
+            color: #a9ada9;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            .hero {
+                padding-top: 65px;
+                padding-bottom: 65px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">TOBYFIT</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <h1>CONSTRUYE TU <span>MEJOR VERSIÓN</span></h1>
+                <p>
+                    Entrena con propósito, supera tus límites y transforma
+                    tu estilo de vida. Tu próximo objetivo comienza hoy.
+                </p>
+                <a class="button" href="#servicios">Descubrir servicios</a>
+            </div>
+        </section>
+
+        <section class="section" id="servicios">
+            <h2>Nuestros servicios</h2>
+            <p class="subtitle">
+                Todo lo que necesitas para alcanzar tus objetivos.
+            </p>
+
+            <div class="cards">
+                <article class="card">
+                    <div class="icon">🏋️</div>
+                    <h3>Entrenamiento</h3>
+                    <p>Rutinas para mejorar tu fuerza, resistencia y condición física.</p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">📋</div>
+                    <h3>Membresías</h3>
+                    <p>Consulta los planes disponibles y organiza tu entrenamiento.</p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">🥤</div>
+                    <h3>Productos</h3>
+                    <p>Explora los productos disponibles en nuestro gimnasio.</p>
+                </article>
+
+                                <a class="card" href="/productos.html" style="text-decoration: none; color: inherit;">
+                    <div class="icon">🏋️</div>
+                    <h3>Productos</h3>
+                    <p>Explora los productos disponibles en nuestro gimnasio.</p>
+                    <span class="button">Ver productos</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section contact" id="contacto">
+            <h2>Empieza hoy</h2>
+            <p class="subtitle">
+                Tu progreso comienza con una decisión.
+            </p>
+            <a class="button" href="mailto:contacto@tobyfit.local">
+                Contáctanos
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Gym TobyFit. Proyecto académico de gestión de gimnasio.
+    </footer>
+</body>
+</html>

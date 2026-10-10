@@ -1,0 +1,580 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d0d">
+<meta name="description" content="Ropa deportiva y accesorios de entrenamiento en Gym TobyFit.">
+<title>Productos | Gym TobyFit</title>
+
+<style>
+:root {
+    --fondo:#080d0d;
+    --panel:#111a19;
+    --verde:#a3f542;
+    --texto:#f4f7f3;
+    --secundario:#a5b5b1;
+    --borde:#293a38;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    margin:0;background:var(--fondo);color:var(--texto);
+    font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.5
+}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{
+    outline:2px solid var(--verde);outline-offset:3px
+}
+.barra{
+    min-height:72px;padding:14px 5%;display:flex;align-items:center;
+    justify-content:space-between;gap:18px;flex-wrap:wrap;
+    border-bottom:1px solid var(--borde);background:#080d0df5
+}
+.marca{font-size:23px;font-weight:950;letter-spacing:1.5px;color:var(--verde)}
+.marca span{color:white}
+.navegacion{display:flex;align-items:center;gap:12px}
+.volver,.boton-salir{
+    padding:9px 14px;border:1px solid var(--borde);border-radius:30px;
+    background:transparent;color:var(--texto);font-size:13px
+}
+.volver:hover,.boton-salir:hover{border-color:var(--verde);color:var(--verde)}
+.hero{
+    position:relative;isolation:isolate;overflow:hidden;
+    min-height:235px;padding:45px 5%;display:flex;align-items:center;
+    border-bottom:1px solid var(--borde);
+    background:#101a14 url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=85") center 48%/cover no-repeat
+}
+.hero::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(90deg,#070d0df5 0%,#070d0dd9 43%,#070d0d30 100%)
+}
+.hero-contenido{width:min(1450px,100%);margin:auto}
+.sobrelinea{
+    color:var(--verde);font-size:11px;font-weight:900;
+    letter-spacing:3px;text-transform:uppercase
+}
+h1{
+    max-width:760px;margin:12px 0;font-size:clamp(35px,5vw,60px);
+    line-height:1.06;letter-spacing:-1.7px
+}
+h1 span{color:var(--verde)}
+.hero p{max-width:550px;color:#d1dbd5;font-size:15px}
+main{width:min(1500px,92%);margin:32px auto 55px}
+.herramientas{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;flex-wrap:wrap;margin-bottom:20px
+}
+.herramientas h2{margin:0;font-size:25px;letter-spacing:-.5px}
+.subtitulo{margin:4px 0 0;color:var(--secundario);font-size:13px}
+.acciones{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.busqueda{
+    width:250px;max-width:100%;padding:11px 14px;
+    border:1px solid var(--borde);border-radius:9px;
+    background:#0c1414;color:white
+}
+.busqueda::placeholder{color:#83938e}
+.boton-principal{
+    padding:11px 16px;border:1px solid var(--verde);
+    border-radius:9px;background:var(--verde);color:#11190b;
+    font-weight:850;transition:filter .2s,transform .2s
+}
+.boton-principal:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.boton-principal:disabled{opacity:.6;cursor:wait;transform:none}
+#mensaje{
+    margin:0 0 18px;padding:10px 13px;border:1px solid var(--borde);
+    border-radius:9px;background:#101919;color:var(--secundario);font-size:12px
+}
+.contenido{
+    display:grid;grid-template-columns:minmax(0,1fr) 285px;
+    align-items:start;gap:22px
+}
+.rejilla{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px
+}
+.tarjeta-producto{
+    min-width:0;overflow:hidden;border:1px solid var(--borde);
+    border-radius:12px;background:linear-gradient(145deg,#152120,#0c1414 80%);
+    transition:transform .2s,border-color .2s,box-shadow .2s
+}
+.tarjeta-producto:hover{
+    transform:translateY(-4px);border-color:#a3f54285;
+    box-shadow:0 14px 30px #0005
+}
+.producto-imagen{
+    position:relative;height:165px;overflow:hidden;background:#15201b;
+    border-bottom:1px solid var(--borde)
+}
+.producto-imagen img{
+    display:block;width:100%;height:100%;object-fit:cover;
+    transition:transform .35s
+}
+.tarjeta-producto:hover .producto-imagen img{transform:scale(1.06)}
+.producto-imagen::after{
+    content:"";position:absolute;inset:45% 0 0;
+    pointer-events:none;background:linear-gradient(transparent,#07100b55)
+}
+.producto-info{padding:13px}
+.producto-info h3{
+    min-height:39px;margin:0 0 9px;font-size:14px;line-height:1.4;
+    overflow-wrap:anywhere
+}
+.producto-detalle{margin:5px 0;color:var(--secundario);font-size:11px}
+.producto-pie{
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:7px;margin-top:12px;padding-top:10px;
+    border-top:1px solid var(--borde)
+}
+.precio{color:var(--verde);font-size:19px;font-weight:900}
+.etiqueta{
+    display:inline-flex;padding:4px 7px;border:1px solid #a3f54238;
+    border-radius:30px;background:#a3f54212;color:var(--verde);
+    font-size:9px;font-weight:800
+}
+.panel-acceso{
+    position:sticky;top:18px;padding:22px;border:1px solid #33453c;
+    border-radius:15px;background:linear-gradient(150deg,#172422,#0d1515);
+    box-shadow:0 16px 40px #0003
+}
+.candado{
+    width:43px;height:43px;display:grid;place-items:center;
+    border-radius:12px;background:#a3f54219;color:var(--verde);font-size:22px
+}
+.panel-acceso h2{margin:12px 0 5px;font-size:23px}
+.detalle{color:var(--secundario);font-size:12px}
+.campo{margin-top:15px}
+.campo label{display:block;margin-bottom:6px;font-size:12px;font-weight:750}
+.campo input{
+    width:100%;min-width:0;padding:11px;border:1px solid #40524d;
+    border-radius:8px;background:#091111;color:white
+}
+.campo input::placeholder{color:#758781}
+.boton-login{width:100%;margin-top:19px}
+#mensajeLogin{overflow-wrap:anywhere}
+.seguridad{
+    margin-top:18px;padding-top:14px;border-top:1px solid var(--borde);
+    color:var(--secundario);font-size:10px;text-align:center
+}
+.sin-resultados{
+    padding:28px 18px;border:1px dashed var(--borde);
+    border-radius:12px;color:var(--secundario);text-align:center
+}
+.oculto{display:none!important}
+footer{
+    display:flex;justify-content:center;align-items:center;gap:12px;
+    flex-wrap:wrap;padding:24px 5%;border-top:1px solid var(--borde);
+    color:var(--secundario);font-size:12px;text-align:center
+}
+footer strong{color:var(--verde);letter-spacing:1.5px}
+@media(min-width:1600px){
+    .rejilla{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .producto-imagen{height:190px}
+}
+@media(max-width:1250px){
+    .contenido{grid-template-columns:minmax(0,1fr) 265px}
+    .rejilla{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:900px){
+    .contenido{grid-template-columns:1fr}
+    .panel-acceso{position:static;grid-row:1}
+    .rejilla{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:650px){
+    .barra{padding:13px 4%}
+    .marca{font-size:19px}
+    .hero{min-height:215px;padding:35px 5%}
+    main{width:92%;margin-top:23px}
+    .herramientas{align-items:stretch}
+    .acciones{width:100%}
+    .busqueda{flex:1;width:100%}
+    .rejilla{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .producto-imagen{height:145px}
+    .producto-info{padding:10px}
+    .producto-info h3{font-size:13px;min-height:36px}
+    .precio{font-size:17px}
+}
+@media(max-width:360px){
+    .producto-imagen{height:115px}
+    .producto-pie{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+<header class="barra">
+    <a class="marca" href="/">GYM <span>TOBYFIT</span></a>
+    <nav class="navegacion" aria-label="Navegación principal">
+        <a class="volver" href="/">← Volver al inicio</a>
+        <button id="cerrarSesion" class="boton-salir oculto" type="button">
+            Cerrar sesión
+        </button>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-contenido">
+        <div class="sobrelinea">GYM TOBYFIT · ROPA Y ACCESORIOS</div>
+        <h1>Equipa tu esfuerzo.<br><span>Supera tus límites.</span></h1>
+        <p>Encuentra tu equipamiento deportivo y lleva cada entrenamiento al siguiente nivel.</p>
+    </div>
+</section>
+
+<main>
+    <div class="herramientas">
+        <div>
+            <h2>Catálogo de productos</h2>
+            <p class="subtitulo">Encuentra lo que necesitas para tu entrenamiento.</p>
+        </div>
+        <div class="acciones">
+            <input class="busqueda" id="buscarProducto" type="search"
+                   placeholder="⌕ Buscar productos..."
+                   aria-label="Buscar productos">
+            <button class="boton-principal" id="recargar" type="button">
+                ↻ Actualizar
+            </button>
+        </div>
+    </div>
+
+    <div id="mensaje" role="status" aria-live="polite">Preparando catálogo...</div>
+
+    <div class="contenido">
+        <section aria-label="Listado de productos">
+            <div id="productos" class="rejilla"></div>
+            <div id="sinResultados" class="sin-resultados oculto">
+                No encontramos productos que coincidan con tu búsqueda.
+            </div>
+        </section>
+
+        <aside id="acceso" class="panel-acceso oculto">
+            <div class="candado" aria-hidden="true">♙</div>
+            <h2>Bienvenido</h2>
+            <p class="detalle">Inicia sesión con tu cuenta de Gym TobyFit para consultar el catálogo.</p>
+
+            <form id="formLogin">
+                <div class="campo">
+                    <label for="correo">Correo electrónico</label>
+                    <input id="correo" name="correo" type="email"
+                           placeholder="tu@correo.com" autocomplete="username" required>
+                </div>
+                <div class="campo">
+                    <label for="contrasena">Contraseña</label>
+                    <input id="contrasena" name="contrasena" type="password"
+                           placeholder="Ingresa tu contraseña"
+                           autocomplete="current-password" required>
+                </div>
+                <button class="boton-principal boton-login" type="submit">
+                    Iniciar sesión →
+                </button>
+                <p id="mensajeLogin" class="detalle" role="status" aria-live="polite"></p>
+            </form>
+            <div class="seguridad">🔒 Acceso protegido por autenticación de Gym TobyFit.</div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <span>© 2026 Gym TobyFit</span>
+    <span>·</span>
+    <span>Catálogo de productos</span>
+    <strong>SUPERA TUS LÍMITES</strong>
+</footer>
+
+<script>
+const contenedor = document.getElementById("productos");
+const mensaje = document.getElementById("mensaje");
+const acceso = document.getElementById("acceso");
+const formularioLogin = document.getElementById("formLogin");
+const mensajeLogin = document.getElementById("mensajeLogin");
+const buscarProducto = document.getElementById("buscarProducto");
+const sinResultados = document.getElementById("sinResultados");
+const botonRecargar = document.getElementById("recargar");
+const botonCerrarSesion = document.getElementById("cerrarSesion");
+
+let listaProductos = [];
+
+/*
+ * Fotografías de Unsplash.
+ * Se selecciona una fotografía según el nombre o la categoría del producto.
+ * Si no hay una coincidencia, se usa una fotografía deportiva general.
+ */
+const imagenes = {
+    polo: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85",
+    camiseta: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=800&q=85",
+    buzo: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=85",
+    short: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=800&q=85",
+    zapatilla: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85",
+    ropa: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=85",
+    guantes: "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?auto=format&fit=crop&w=800&q=85",
+    mochila: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=85",
+    proteina: "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=800&q=85",
+    suplemento: "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=800&q=85",
+    botella: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=85",
+    accesorio: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=85",
+    gimnasio: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=85"
+};
+
+function elegirImagen(producto) {
+    // Si el backend ya entrega una foto, tiene prioridad.
+    const directa = producto.imagenUrl || producto.imagen;
+    if (directa) return directa;
+
+    const texto = (
+        String(producto.nombre || "") + " " +
+        String(producto.categoria || "")
+    ).toLocaleLowerCase("es");
+
+    if (texto.includes("zapatilla") || texto.includes("calzado") ||
+        texto.includes("tenis") || texto.includes("shoe")) return imagenes.zapatilla;
+
+    if (texto.includes("polo")) return imagenes.polo;
+
+    if (texto.includes("camiseta") || texto.includes("polera") ||
+        texto.includes("vividi") || texto.includes("tank")) return imagenes.camiseta;
+
+    if (texto.includes("buzo") || texto.includes("jogger") ||
+        texto.includes("pantalon") || texto.includes("pantalón")) return imagenes.buzo;
+
+    if (texto.includes("short") || texto.includes("bermuda")) return imagenes.short;
+
+    if (texto.includes("guante")) return imagenes.guantes;
+
+    if (texto.includes("mochila") || texto.includes("bolso")) return imagenes.mochila;
+
+    if (texto.includes("proteina") || texto.includes("proteína") ||
+        texto.includes("whey")) return imagenes.proteina;
+
+    if (texto.includes("creatina") || texto.includes("preentreno") ||
+        texto.includes("quemador") || texto.includes("suplemento")) return imagenes.suplemento;
+
+    if (texto.includes("botella") || texto.includes("termo")) return imagenes.botella;
+
+    if (texto.includes("accesorio") || texto.includes("banda") ||
+        texto.includes("cuerda") || texto.includes("mancuerna")) return imagenes.accesorio;
+
+    if (texto.includes("ropa") || texto.includes("legging") ||
+        texto.includes("licra") || texto.includes("deportivo")) return imagenes.ropa;
+
+    return imagenes.gimnasio;
+}
+
+function crearImagen(producto) {
+    const contenedorImagen = document.createElement("div");
+    contenedorImagen.className = "producto-imagen";
+
+    const foto = document.createElement("img");
+    foto.src = elegirImagen(producto);
+    foto.alt = producto.nombre || "Producto deportivo";
+    foto.loading = "lazy";
+    foto.decoding = "async";
+
+    // Si una fotografía falla, intenta usar una foto general diferente.
+    foto.onerror = function() {
+        if (foto.dataset.reintento !== "si") {
+            foto.dataset.reintento = "si";
+            foto.src = imagenes.gimnasio;
+        } else {
+            foto.onerror = null;
+            contenedorImagen.style.background =
+                "linear-gradient(135deg,#17251a,#34482b)";
+            foto.remove();
+            const texto = document.createElement("span");
+            texto.textContent = "GYM TOBYFIT";
+            texto.style.cssText =
+                "position:absolute;inset:0;display:grid;place-items:center;color:#a3f542;font-weight:900;letter-spacing:2px";
+            contenedorImagen.appendChild(texto);
+        }
+    };
+
+    contenedorImagen.appendChild(foto);
+    return contenedorImagen;
+}
+
+function crearTarjeta(producto) {
+    const tarjeta = document.createElement("article");
+    tarjeta.className = "tarjeta-producto";
+
+    const imagen = crearImagen(producto);
+    const info = document.createElement("div");
+    info.className = "producto-info";
+
+    const nombre = document.createElement("h3");
+    nombre.textContent = producto.nombre || "Producto sin nombre";
+
+    const categoria = document.createElement("p");
+    categoria.className = "producto-detalle";
+    categoria.textContent = "Categoría: " + (producto.categoria || "Sin categoría");
+
+    const genero = document.createElement("p");
+    genero.className = "producto-detalle";
+    genero.textContent = "Género: " + (producto.genero || "No especificado");
+
+    const pie = document.createElement("div");
+    pie.className = "producto-pie";
+
+    const precio = document.createElement("span");
+    precio.className = "precio";
+
+    const valor = Number(producto.precio);
+    precio.textContent = Number.isFinite(valor)
+        ? valor.toLocaleString("es-PE", {style:"currency",currency:"PEN"})
+        : "Precio no disponible";
+
+    const etiqueta = document.createElement("span");
+    etiqueta.className = "etiqueta";
+    etiqueta.textContent = "✓ Disponible";
+
+    pie.append(precio, etiqueta);
+    info.append(nombre, categoria, genero, pie);
+    tarjeta.append(imagen, info);
+
+    return tarjeta;
+}
+
+function mostrarProductos() {
+    contenedor.replaceChildren();
+
+    const busqueda = buscarProducto.value.trim().toLocaleLowerCase("es");
+    const filtrados = listaProductos.filter(producto => {
+        const texto = [
+            producto.nombre, producto.categoria, producto.genero
+        ].filter(Boolean).join(" ").toLocaleLowerCase("es");
+
+        return texto.includes(busqueda);
+    });
+
+    filtrados.forEach(producto => contenedor.appendChild(crearTarjeta(producto)));
+    sinResultados.classList.toggle("oculto", filtrados.length !== 0);
+
+    if (listaProductos.length > 0) {
+        mensaje.textContent = busqueda
+            ? `${filtrados.length} resultado(s) para "${buscarProducto.value.trim()}".`
+            : `Catálogo actualizado · ${listaProductos.length} productos disponibles.`;
+    }
+}
+
+async function cargarProductos() {
+    contenedor.replaceChildren();
+    sinResultados.classList.add("oculto");
+    acceso.classList.add("oculto");
+    mensaje.textContent = "Cargando catálogo...";
+    botonRecargar.disabled = true;
+
+    const token = localStorage.getItem("token");
+    botonCerrarSesion.classList.toggle("oculto", !token);
+
+    if (!token) {
+        listaProductos = [];
+        mensaje.textContent = "Inicia sesión para consultar los productos.";
+        acceso.classList.remove("oculto");
+        botonRecargar.disabled = false;
+        return;
+    }
+
+    try {
+        const respuesta = await fetch("/api/productos", {
+            headers: {
+                "Authorization": "Bearer " + token,
+                "Accept": "application/json"
+            }
+        });
+
+        if (respuesta.status === 401 || respuesta.status === 403) {
+            localStorage.removeItem("token");
+            listaProductos = [];
+            mensaje.textContent = "Tu sesión expiró o no tienes permiso. Inicia sesión nuevamente.";
+            acceso.classList.remove("oculto");
+            botonCerrarSesion.classList.add("oculto");
+            return;
+        }
+
+        if (!respuesta.ok) {
+            throw new Error("Error del servidor: " + respuesta.status);
+        }
+
+        const datos = await respuesta.json();
+
+        if (!Array.isArray(datos)) {
+            throw new Error("La respuesta del catálogo no es una lista.");
+        }
+
+        listaProductos = datos.filter(producto => producto.activo !== false);
+
+        if (listaProductos.length === 0) {
+            mensaje.textContent = "Todavía no hay productos registrados.";
+            return;
+        }
+
+        mostrarProductos();
+    } catch (error) {
+        console.error("Error al cargar productos:", error);
+        mensaje.textContent = "No se pudieron cargar los productos. Verifica que el servidor esté activo e inténtalo de nuevo.";
+    } finally {
+        botonRecargar.disabled = false;
+    }
+}
+
+formularioLogin.addEventListener("submit", async function(evento) {
+    evento.preventDefault();
+
+    const correo = document.getElementById("correo").value.trim();
+    const contrasena = document.getElementById("contrasena").value;
+    const boton = formularioLogin.querySelector("button[type='submit']");
+
+    mensajeLogin.textContent = "Verificando tus datos...";
+    boton.disabled = true;
+
+    try {
+        const respuesta = await fetch("/api/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({correo, contrasena})
+        });
+
+        if (!respuesta.ok) {
+            mensajeLogin.textContent = respuesta.status === 401
+                ? "Correo o contraseña incorrectos."
+                : `No se pudo iniciar sesión (error ${respuesta.status}).`;
+            return;
+        }
+
+        const datos = await respuesta.json();
+
+        if (!datos.token) {
+            mensajeLogin.textContent = "El servidor no devolvió un token de acceso.";
+            return;
+        }
+
+        localStorage.setItem("token", datos.token);
+        formularioLogin.reset();
+        mensajeLogin.textContent = "¡Bienvenido a Gym TobyFit!";
+        await cargarProductos();
+    } catch (error) {
+        console.error("Error al iniciar sesión:", error);
+        mensajeLogin.textContent = "No se pudo conectar con el servidor. Inténtalo de nuevo.";
+    } finally {
+        boton.disabled = false;
+    }
+});
+
+botonCerrarSesion.addEventListener("click", function() {
+    localStorage.removeItem("token");
+    listaProductos = [];
+    contenedor.replaceChildren();
+    buscarProducto.value = "";
+    mensajeLogin.textContent = "";
+    cargarProductos();
+});
+
+buscarProducto.addEventListener("input", mostrarProductos);
+botonRecargar.addEventListener("click", cargarProductos);
+
+cargarProductos();
+</script>
+</body>
+</html>
