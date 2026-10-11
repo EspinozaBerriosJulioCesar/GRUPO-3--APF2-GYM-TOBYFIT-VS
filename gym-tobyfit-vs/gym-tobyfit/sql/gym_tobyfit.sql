@@ -54,14 +54,7 @@ VALUES
 (5, 'Ultra Running Shorts', 'short', 'hombre', 110.00, '/img/short_hombre.webp', '[\"/img/short_hombre.webp\", \"/img/short_hombre_1.webp\"]', '[\"Negro\", \"Beige\"]', 1),
 (6, 'Short De Licra', 'short', 'mujer', 40.00, '/img/short_mujer.jpg', '[\"/img/short_mujer.jpg\", \"/img/short_mujer_1.jpg\"]', '[\"Gris\", \"Celeste\"]', 1),
 (7, 'Spider Man – Polo compresor', 'polo', 'hombre', 65.00, '/img/polo_compresor.jpg', '[\"/img/polo_compresor.jpg\", \"/img/polo_compresor_1.jpg\", \"/img/polo_compresor_2.jpg\", \"/img/polo_compresor_3.jpg\"]', '[\"Negro\", \"Gris\", \"Rojo\", \"Morado\"]', 1),
-(8, 'Vividi', 'vividi', 'hombre', 59.00, '/img/vividi_hombre.webp', '[\"/img/vividi_hombre.webp\", \"/img/vividi_hombre_1.webp\"]', '[\"Negro\", \"Gris\"]', 1),
-(9, 'Guantes Deportivos con Muñequeras', 'accesorios', 'todos', 60.00, '/img/guantes.webp', '[\"/img/guantes.webp\", \"/img/guantes_1.webp\"]', '[\"Negro\"]', 1),
-(10, 'Proteína Whey Gold', 'proteina', 'todos', 200.00, '/img/proteina_whey_gold.webp', '[\"/img/proteina_whey_gold.webp\", \"/img/proteina_whey_gold_1.webp\"]', '[\"3 kg\"]', 1),
-(11, 'Proteína BigM', 'proteina', 'todos', 140.00, '/img/proteina_bigm.png', '[\"/img/proteina_bigm.png\", \"/img/proteina_bigm_1.png\"]', '[\"5 kg\"]', 1),
-(12, 'CREATINA OPTIMUM NUTRITION MONOHIDRATADA', 'creatina', 'todos', 230.00, '/img/creatina_optimun_nutrition.webp', '[\"/img/creatina_optimun_nutrition.webp\", \"/img/creatina_optimun_nutrition_1.webp\"]', '[\"600 gr\"]', 1),
-(13, 'CREATINA ULTIMATE NUTRITION MONOHIDRATADA', 'creatina', 'todos', 225.00, '/img/creatina_ultimate_nutrition.webp', '[\"/img/creatina_ultimate_nutrition.webp\", \"/img/creatina_ultimate_nutrition_1.webp\"]', '[\"1 kg\"]', 1),
-(14, 'Quemador HD Paquete 15 Botellas de 135ml L-Carnitina', 'quemadores', 'todos', 30.00, '/img/quemador_L-Carnitina.webp', '[\"/img/quemador_L-Carnitina.webp\", \"/img/quemador_L-Carnitina_1.webp\", \"/img/quemador_L-Carnitina_2.webp\", \"/img/quemador_L-Carnitina_3.webp\"]', '[\"Piña\", \"BlueBerry\", \"Guarana\"]', 1),
-(15, 'Pre Entreno Nox Up', 'preentrenos', 'todos', 90.00, '/img/preentreno_noxup.webp', '[\"/img/preentreno_noxup.webp\", \"/img/preentreno_noxup_1.webp\"]', '[\"600 gr\"]', 1);
+(8, 'Vividi', 'vividi', 'hombre', 59.00, '/img/vividi_hombre.webp', '[\"/img/vividi_hombre.webp\", \"/img/vividi_hombre_1.webp\"]', '[\"Negro\", \"Gris\"]', 1);
 
 -- --------------------------------------------------------
 -- TABLA usuarios
@@ -89,10 +82,8 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios`
 (`id`, `apellido`, `contrasena`, `correo`, `edad`, `nombre`, `rol`, `telefono`)
 VALUES
-(1, 'Alvarez Bacilio', '$2a$10$0M/ufessIxAZA1LnhAYsQe2yA/Xpc.KbVNfTZ1ymQYB4Bs74kyoH6', 'juan@gmail.com', 20, 'Juan Carlos Henry', 'USUARIO', '925966285'),
-(2, 'Rivera', '$2a$10$ExYCr0GnUQ77ma3of5ZDLO00PiHHvRpp8PQ5eLxYVCLqQtnPhuLqm', 'elias@gmail.com', 20, 'Elias', 'USUARIO', '972154855'),
-(3, 'Tiznado', '$2a$10$KHWGZqfC1C6rRMVUNMcipeIf3DaXzzkhrTYJWx.vb6qabjV2vsudm', 'fabrizio@gmail.com', 20, 'Fabrizio', 'USUARIO', '915990023'),
-(4, 'Torrez', '$2a$10$3D3/.TxuK.Y.33R0cwdi3uiN0CsDdVg96eANaeZdUhKfCUM2V.CG6', 'willian@gmail.com', 20, 'Willian', 'USUARIO', '947219716');
+(1, 'Demo', '$2b$10$J1fZ/LXS6Nmger6luDB0su1sXcwqbX2jGAX4TRgpS6Xx5Kar5tERq', 'admin.jwt@tobyfit.local', 25, 'Admin', 'ADMIN', '900000001'),
+(2, 'Demo', '$2b$10$j1cb0oVJ/OXO8eRYNLkUG.MCHlCwRsmKkmofyVDoTAYbj/tu5EYNW', 'usuario.jwt@tobyfit.local', 22, 'Usuario', 'USUARIO', '900000002');
 
 -- --------------------------------------------------------
 -- FINALIZAR
