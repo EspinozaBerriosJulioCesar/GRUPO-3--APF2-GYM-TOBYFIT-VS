@@ -8,8 +8,9 @@ import com.gym.gym_tobifit.models.Producto;
 import com.gym.gym_tobifit.models.Usuario;
 import com.gym.gym_tobifit.services.ProductoService;
 import com.gym.gym_tobifit.services.UsuarioService;
-import com.gym.gym_tobifit.security.JwtService;
-import com.gym.gym_tobifit.security.CustomUserDetailsService;
+import com.gym.gym_tobifit.security.JwtUtil;
+import com.gym.gym_tobifit.security.SecurityErrorHandler;
+import com.gym.gym_tobifit.security.MyUserDetailsService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -51,10 +52,13 @@ class ApiControllersTest {
     UsuarioService usuarioService;
 
     @MockBean
-    JwtService jwtService;
+    JwtUtil jwtUtil;
 
     @MockBean
-    CustomUserDetailsService customUserDetailsService;
+    MyUserDetailsService myUserDetailsService;
+
+    @MockBean
+    SecurityErrorHandler securityErrorHandler;
 
     Producto producto;
     Usuario usuario;
