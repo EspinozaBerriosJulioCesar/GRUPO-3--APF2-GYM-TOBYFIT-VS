@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membresías | TOBYFIT</title>
+    <style>
+        :root {
+            --fondo: #0b0f0e;
+            --panel: #151c19;
+            --verde: #a3e635;
+            --texto: #f5f7f2;
+            --suave: #a7b0a9;
+            --borde: #29342e;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--fondo);
+            color: var(--texto);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 22px 7%;
+            border-bottom: 1px solid var(--borde);
+        }
+
+        .logo {
+            color: var(--verde);
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        nav { display: flex; gap: 18px; flex-wrap: wrap; }
+
+        nav a {
+            color: var(--texto);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover { color: var(--verde); }
+
+        main {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+            padding: 55px 0;
+        }
+
+        .intro { text-align: center; margin-bottom: 35px; }
+
+        .etiqueta {
+            color: var(--verde);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 { font-size: clamp(32px, 5vw, 52px); margin: 14px 0; }
+
+        .intro p {
+            color: var(--suave);
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .acciones {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+
+        button, .boton {
+            border: 0;
+            border-radius: 8px;
+            padding: 12px 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .primario { background: var(--verde); color: #17200d; }
+        .secundario { background: #26312a; color: var(--texto); }
+        button:hover, .boton:hover { filter: brightness(1.1); }
+
+        #estado {
+            text-align: center;
+            color: var(--suave);
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        #estado.error { color: #fca5a5; }
+        #estado.ok { color: var(--verde); }
+
+        .login {
+            max-width: 420px;
+            margin: 25px auto;
+            padding: 25px;
+            background: var(--panel);
+            border: 1px solid var(--borde);
+            border-radius: 16px;
+        }
+
+        .login h2 { margin-top: 0; }
+
+        label { display: block; margin: 15px 0 7px; color: var(--suave); }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            color: var(--texto);
+            background: #0c120f;
+            border: 1px solid var(--borde);
+            border-radius: 8px;
+        }
+
+        .login button { width: 100%; margin-top: 20px; }
+
+        .oculto { display: none !important; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        .tarjeta {
+            background: linear-gradient(145deg, #18211b, #101512);
+            border: 1px solid var(--borde);
+            border-radius: 16px;
+            padding: 25px;
+            transition: transform .2s, border-color .2s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-4px);
+            border-color: var(--verde);
+        }
+
+        .estado-plan {
+            display: inline-block;
+            color: var(--verde);
+            background: #27351b;
+            padding: 6px 10px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .tarjeta h2 { font-size: 23px; margin: 18px 0 8px; }
+
+        .precio {
+            color: var(--verde);
+            font-size: 34px;
+            font-weight: 900;
+            margin: 12px 0;
+        }
+
+        .duracion { color: var(--suave); font-size: 14px; }
+
+        .descripcion {
+            color: #c5cec7;
+            line-height: 1.7;
+            min-height: 65px;
+            overflow-wrap: anywhere;
+        }
+
+        .vacio {
+            text-align: center;
+            color: var(--suave);
+            padding: 35px;
+            border: 1px dashed var(--borde);
+            border-radius: 12px;
+            grid-column: 1 / -1;
+        }
+
+        footer {
+            padding: 25px;
+            border-top: 1px solid var(--borde);
+            text-align: center;
+            color: var(--suave);
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 18px 5%; }
+            main { padding: 35px 0; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <a class="logo" href="/index.html">TOBYFIT</a>
+    <nav aria-label="Navegación principal">
+        <a href="/index.html">Inicio</a>
+        <a href="/productos.html">Productos</a>
+        <a href="/membresias.html">Membresías</a>
+        <a href="/rutinas.html">Rutinas</a>
+    </nav>
+</header>
+
+<main>
+    <section class="intro">
+        <span class="etiqueta">Tu siguiente nivel</span>
+        <h1>Encuentra tu membresía</h1>
+        <p>Consulta los planes disponibles, revisa su duración y elige la opción que mejor se adapte a tus objetivos.</p>
+    </section>
+
+    <div class="acciones">
+        <button type="button" id="recargar" class="primario oculto">Actualizar membresías</button>
+        <button type="button" id="cerrarSesion" class="secundario oculto">Cerrar sesión</button>
+    </div>
+
+    <p id="estado" role="status" aria-live="polite">Preparando catálogo...</p>
+
+    <form id="formLogin" class="login oculto">
+        <h2>Inicia sesión</h2>
+        <p style="color:var(--suave);line-height:1.6">Accede con tu cuenta de TOBYFIT para consultar las membresías.</p>
+        <label for="correo">Correo electrónico</label>
+        <input id="correo" type="email" autocomplete="username" required>
+        <label for="contrasena">Contraseña</label>
+        <input id="contrasena" type="password" autocomplete="current-password" required>
+        <button class="primario" type="submit">Iniciar sesión</button>
+    </form>
+
+    <section id="catalogo" class="grid" aria-label="Planes de membresía"></section>
+</main>
+
+<footer>TOBYFIT · Entrena con propósito, avanza con disciplina.</footer>
+
+<script>
+(() => {
+    const API = '/api/membresias';
+    const estado = document.getElementById('estado');
+    const catalogo = document.getElementById('catalogo');
+    const formLogin = document.getElementById('formLogin');
+    const recargar = document.getElementById('recargar');
+    const cerrarSesion = document.getElementById('cerrarSesion');
+
+    function mostrarEstado(mensaje, tipo = '') {
+        estado.textContent = mensaje;
+        estado.className = tipo;
+    }
+
+    function mostrarLogin(mensaje = 'Inicia sesión para consultar las membresías.') {
+        catalogo.replaceChildren();
+        formLogin.classList.remove('oculto');
+        recargar.classList.add('oculto');
+        cerrarSesion.classList.add('oculto');
+        mostrarEstado(mensaje);
+    }
+
+    function mostrarCatalogo() {
+        formLogin.classList.add('oculto');
+        recargar.classList.remove('oculto');
+        cerrarSesion.classList.remove('oculto');
+    }
+
+    async function cargarMembresias() {
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            mostrarLogin();
+            return;
+        }
+
+        mostrarCatalogo();
+        catalogo.replaceChildren();
+        mostrarEstado('Cargando membresías...');
+
+        try {
+            const respuesta = await fetch(API, {
+                method: 'GET',
+                headers: { 'Authorization': 'Bearer ' + token }
+            });
+
+            if (respuesta.status === 401 || respuesta.status === 403) {
+                localStorage.removeItem('token');
+                mostrarLogin('Tu sesión no está vigente o no tienes acceso. Inicia sesión nuevamente.');
+                return;
+            }
+
+            if (!respuesta.ok) {
+                throw new Error('El servidor respondió con el código ' + respuesta.status);
+            }
+
+            const membresias = await respuesta.json();
+            const disponibles = Array.isArray(membresias)
+                ? membresias.filter(m => m.activa === true)
+                : [];
+
+            if (disponibles.length === 0) {
+                mostrarEstado('Todavía no hay membresías activas registradas.', 'ok');
+                catalogo.innerHTML = '<div class="vacio">Pronto encontrarás aquí nuestros planes disponibles.</div>';
+                return;
+            }
+
+            disponibles.forEach(m => {
+                const tarjeta = document.createElement('article');
+                tarjeta.className = 'tarjeta';
+
+                const etiqueta = document.createElement('span');
+                etiqueta.className = 'estado-plan';
+                etiqueta.textContent = 'Plan disponible';
+
+                const titulo = document.createElement('h2');
+                titulo.textContent = m.nombre || 'Membresía';
+
+                const precio = document.createElement('div');
+                precio.className = 'precio';
+                precio.textContent = Number.isFinite(Number(m.precio))
+                    ? 'S/ ' + Number(m.precio).toLocaleString('es-PE', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    })
+                    : 'Consultar precio';
+
+                const duracion = document.createElement('p');
+                duracion.className = 'duracion';
+                const dias = Number(m.duracionDias);
+                duracion.textContent = Number.isFinite(dias) && dias > 0
+                    ? dias + (dias === 1 ? ' día de duración' : ' días de duración')
+                    : 'Duración por confirmar';
+
+                const descripcion = document.createElement('p');
+                descripcion.className = 'descripcion';
+                descripcion.textContent = m.descripcion || 'Entrena y avanza hacia tus objetivos.';
+
+                tarjeta.append(etiqueta, titulo, precio, duracion, descripcion);
+                catalogo.appendChild(tarjeta);
+            });
+
+            mostrarEstado('Se encontraron ' + disponibles.length + ' membresía(s) activa(s).', 'ok');
+        } catch (error) {
+            mostrarEstado('No se pudieron cargar las membresías. Comprueba que el servidor esté funcionando e inténtalo otra vez. Detalle: ' + error.message, 'error');
+        }
+    }
+
+    formLogin.addEventListener('submit', async (evento) => {
+        evento.preventDefault();
+        const boton = formLogin.querySelector('button[type="submit"]');
+        boton.disabled = true;
+        boton.textContent = 'Ingresando...';
+
+        try {
+            const respuesta = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    correo: document.getElementById('correo').value.trim(),
+                    contrasena: document.getElementById('contrasena').value
+                })
+            });
+
+            const datos = await respuesta.json().catch(() => ({}));
+
+            if (!respuesta.ok || !datos.token) {
+                mostrarEstado(datos.message || datos.mensaje || 'No se pudo iniciar sesión. Revisa tus credenciales.', 'error');
+                return;
+            }
+
+            localStorage.setItem('token', datos.token);
+            formLogin.reset();
+            await cargarMembresias();
+        } catch (error) {
+            mostrarEstado('No se pudo conectar con el servidor. Comprueba que Gym TobyFit esté ejecutándose.', 'error');
+        } finally {
+            boton.disabled = false;
+            boton.textContent = 'Iniciar sesión';
+        }
+    });
+
+    recargar.addEventListener('click', cargarMembresias);
+
+    cerrarSesion.addEventListener('click', () => {
+        localStorage.removeItem('token');
+        mostrarLogin('Has cerrado sesión correctamente.');
+    });
+
+    cargarMembresias();
+})();
+</script>
+</body>
+</html>

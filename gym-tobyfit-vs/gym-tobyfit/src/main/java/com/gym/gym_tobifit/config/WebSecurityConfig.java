@@ -1,8 +1,5 @@
 package com.gym.gym_tobifit.config;
 
-import com.gym.gym_tobifit.security.JwtFilter;
-import com.gym.gym_tobifit.security.SecurityErrorHandler;
-import jakarta.servlet.DispatcherType;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +14,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.gym.gym_tobifit.security.JwtFilter;
+import com.gym.gym_tobifit.security.SecurityErrorHandler;
+
+import jakarta.servlet.DispatcherType;
 
 /** S08 diapositiva 20 y S09 diapositivas 9 y 10. */
 @Configuration
@@ -35,7 +37,17 @@ public class WebSecurityConfig {
                         .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/", "/index.html", "/productos.html", "/css/**", "/js/**", "/images/**", "/favicon.ico").permitAll()
+                        .requestMatchers(HttpMethod.GET,
+                                "/",
+                                "/index.html",
+                                "/productos.html",
+                                "/membresias.html",
+                                "/rutinas.html",
+                                "/css/**",
+                                "/js/**",
+                                "/images/**",
+                                "/favicon.ico"
+                        ).permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling(exceptions -> exceptions
@@ -54,7 +66,7 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    // JwtFilter ya está en SecurityFilterChain; evita registrarlo dos veces en el servidor.
+    // JwtFilter ya estÃ¡ en SecurityFilterChain; evita registrarlo dos veces en el servidor.
     @Bean
     public FilterRegistrationBean<JwtFilter> jwtFilterRegistration(JwtFilter filter) {
         FilterRegistrationBean<JwtFilter> registration = new FilterRegistrationBean<>(filter);

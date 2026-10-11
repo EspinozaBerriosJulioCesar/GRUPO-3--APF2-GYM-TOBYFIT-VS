@@ -11,13 +11,14 @@ import com.gym.gym_tobifit.services.UsuarioService;
 import com.gym.gym_tobifit.security.JwtUtil;
 import com.gym.gym_tobifit.security.SecurityErrorHandler;
 import com.gym.gym_tobifit.security.MyUserDetailsService;
+import com.gym.gym_tobifit.security.JwtService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -31,7 +32,9 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
+import com.gym.gym_tobifit.security.JwtUtil;
+import com.gym.gym_tobifit.security.MyUserDetailsService;
+import com.gym.gym_tobifit.security.SecurityErrorHandler;
 @WebMvcTest(controllers = {
         ProductoApiController.class,
         UsuarioApiController.class
@@ -39,30 +42,44 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc(addFilters = false)
 class ApiControllersTest {
 
-    @Autowired
-    MockMvc mockMvc;
+@Autowired
+MockMvc mockMvc;
 
-    @Autowired
-    ObjectMapper objectMapper;
+@Autowired
+ObjectMapper objectMapper;
 
-    @MockBean
-    ProductoService productoService;
+@MockitoBean
+ProductoService productoService;
 
-    @MockBean
-    UsuarioService usuarioService;
+@MockitoBean
+UsuarioService usuarioService;
 
-    @MockBean
-    JwtUtil jwtUtil;
+@MockitoBean
+ProductoService productoService;
 
-    @MockBean
-    MyUserDetailsService myUserDetailsService;
+@MockitoBean
+UsuarioService usuarioService;
 
-    @MockBean
-    SecurityErrorHandler securityErrorHandler;
+@MockitoBean
+JwtService jwtService;
 
-    Producto producto;
-    Usuario usuario;
+@MockitoBean
+JwtUtil jwtUtil;
 
+@MockitoBean
+MyUserDetailsService myUserDetailsService;
+
+@MockitoBean
+SecurityErrorHandler securityErrorHandler;
+
+@MockitoBean
+MyUserDetailsService myUserDetailsService;
+
+@MockitoBean
+SecurityErrorHandler securityErrorHandler;
+
+Producto producto;
+Usuario usuario;
     @BeforeEach
     void datos() {
         producto = new Producto(

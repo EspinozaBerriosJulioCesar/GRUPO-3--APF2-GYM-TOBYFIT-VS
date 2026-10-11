@@ -1,11 +1,8 @@
 
 package com.gym.gym_tobifit.security;
 
-import io.jsonwebtoken.JwtException;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
@@ -15,7 +12,11 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import java.io.IOException;
+import io.jsonwebtoken.JwtException;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Filtro de autenticación JWT.
@@ -43,11 +44,13 @@ public class JwtFilter extends OncePerRequestFilter {
      * No aplicar el filtro JWT al endpoint de login.
      */
     @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) {
-        return "POST".equals(request.getMethod())
-                && "/auth".equals(request.getServletPath());
-    }
+protected boolean shouldNotFilter(HttpServletRequest request) {
+    String path = request.getServletPath();
 
+    return "POST".equalsIgnoreCase(request.getMethod())
+            && ("/auth".equals(path)
+            || "/api/auth/login".equals(path));
+}
     /**
      * Valida el JWT y autentica al usuario.
      */
