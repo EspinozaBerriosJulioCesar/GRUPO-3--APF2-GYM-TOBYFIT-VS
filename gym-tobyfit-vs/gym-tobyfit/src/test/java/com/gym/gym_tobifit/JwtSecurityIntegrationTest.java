@@ -69,13 +69,13 @@ class JwtSecurityIntegrationTest {
     @Test void loginGeneraTokenFirmadoDesdeBaseDeDatos() throws Exception {
         String token = login(ADMIN);
         assertThat(token.split("\\.")).hasSize(3);
-        var parsed = Jwts.parserBuilder().setSigningKey(Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8)))
-                .build().parseClaimsJws(token);
+        var parsed = Jwts.parser().verifyWith(Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8)))
+                .build().parseSignedClaims(token);
         assertThat(parsed.getHeader().getAlgorithm()).isEqualTo("HS256");
-        assertThat(parsed.getBody().getSubject()).isEqualTo(ADMIN);
-        assertThat(parsed.getBody().getExpiration().getTime() - parsed.getBody().getIssuedAt().getTime())
+        assertThat(parsed.getPayload().getSubject()).isEqualTo(ADMIN);
+        assertThat(parsed.getPayload().getExpiration().getTime() - parsed.getPayload().getIssuedAt().getTime())
                 .isEqualTo(3600000);
-        assertThat(parsed.getBody()).doesNotContainKeys("password", "contrasena");
+        assertThat(parsed.getPayload()).doesNotContainKeys("password", "contrasena");
         assertThat(encoder.matches(PASSWORD, usuarios.findByCorreoIgnoreCase(ADMIN).orElseThrow().getContrasena()))
                 .isTrue();
     }

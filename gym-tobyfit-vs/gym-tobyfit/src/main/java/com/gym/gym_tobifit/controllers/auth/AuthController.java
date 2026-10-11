@@ -2,7 +2,7 @@ package com.gym.gym_tobifit.controllers.auth;
 
 import com.gym.gym_tobifit.dto.LoginRequest;
 import com.gym.gym_tobifit.dto.LoginResponse;
-import com.gym.gym_tobifit.security.JwtService;
+import com.gym.gym_tobifit.security.JwtUtil;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
-    private final JwtService jwtService;
+    private final JwtUtil jwtUtil;
 
     public AuthController(
             AuthenticationManager authenticationManager,
-            JwtService jwtService) {
+            JwtUtil jwtUtil) {
 
         this.authenticationManager = authenticationManager;
-        this.jwtService = jwtService;
+        this.jwtUtil = jwtUtil;
     }
 
     @PostMapping("/login")
@@ -36,7 +36,7 @@ public class AuthController {
         );
 
         String token =
-                jwtService.generateToken(request.getCorreo());
+                jwtUtil.generateToken(request.getCorreo());
 
         return ResponseEntity.ok(
                 new LoginResponse(token)

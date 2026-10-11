@@ -3,7 +3,7 @@
  <modelVersion>4.0.0</modelVersion>
  <parent><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-parent</artifactId><version>3.4.10</version><relativePath/></parent>
  <groupId>com.gym</groupId><artifactId>gym-tobifit</artifactId><version>0.0.1-SNAPSHOT</version><name>gym-tobifit</name>
- <properties><java.version>21</java.version><lombok.version>1.18.48</lombok.version><jjwt.version>0.11.5</jjwt.version></properties>
+ <properties><java.version>21</java.version><lombok.version>1.18.48</lombok.version><jjwt.version>0.12.6</jjwt.version></properties>
  <dependencies>
   <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-web</artifactId></dependency>
   <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-data-jpa</artifactId></dependency>

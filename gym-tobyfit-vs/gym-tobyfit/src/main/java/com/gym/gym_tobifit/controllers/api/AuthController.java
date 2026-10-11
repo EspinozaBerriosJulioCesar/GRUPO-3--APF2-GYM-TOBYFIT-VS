@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /** S09 diapositiva 11: autentica en la base de datos antes de emitir el token. */
-@RestController
+@RestController("apiAuthController")
 public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;

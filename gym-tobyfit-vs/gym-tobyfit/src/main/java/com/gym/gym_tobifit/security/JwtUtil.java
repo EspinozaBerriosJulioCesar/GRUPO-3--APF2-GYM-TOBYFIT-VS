@@ -56,8 +56,8 @@ public class JwtUtil {
     }
 
     private Claims parseClaims(String token) {
-        Jws<Claims> parsed = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
-        Claims claims = parsed.getBody();
+        Jws<Claims> parsed = Jwts.parser().verifyWith(key).build().parseSignedClaims(token);
+        Claims claims = parsed.getPayload();
         if (!"HS256".equals(parsed.getHeader().getAlgorithm())
                 || claims.getSubject() == null || claims.getSubject().isBlank()
                 || claims.getIssuedAt() == null || claims.getExpiration() == null) {

@@ -16,6 +16,8 @@ Si cambias código y algo falla, recompila todo:
 ./mvnw clean spring-boot:run -Dspring-boot.run.profiles=demo
 ```
 
+Al portal web de la BD (phpMyAdmin), http://localhost/phpmyadmin con XAMPP
+
 Cuentas demo:
 - `admin.jwt@tobyfit.local` / `DemoAdmin2026!`
 - `usuario.jwt@tobyfit.local` / `DemoUsuario2026!`
