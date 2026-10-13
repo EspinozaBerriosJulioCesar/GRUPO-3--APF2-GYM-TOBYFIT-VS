@@ -8,213 +8,14 @@
 <meta name="description" content="Ropa deportiva y accesorios de entrenamiento en Gym TobyFit.">
 <title>Productos | Gym TobyFit</title>
 
-<style>
-:root {
-    --fondo:#080d0d;
-    --panel:#111a19;
-    --verde:#a3f542;
-    --texto:#f4f7f3;
-    --secundario:#a5b5b1;
-    --borde:#293a38;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-    margin:0;background:var(--fondo);color:var(--texto);
-    font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.5
-}
-a{color:inherit;text-decoration:none}
-button,input{font:inherit}
-button{cursor:pointer}
-button:focus-visible,input:focus-visible,a:focus-visible{
-    outline:2px solid var(--verde);outline-offset:3px
-}
-.barra{
-    min-height:72px;padding:14px 5%;display:flex;align-items:center;
-    justify-content:space-between;gap:18px;flex-wrap:wrap;
-    border-bottom:1px solid var(--borde);background:#080d0df5
-}
-.marca{font-size:23px;font-weight:950;letter-spacing:1.5px;color:var(--verde)}
-.marca span{color:white}
-.navegacion{display:flex;align-items:center;gap:12px}
-.volver,.boton-salir{
-    padding:9px 14px;border:1px solid var(--borde);border-radius:30px;
-    background:transparent;color:var(--texto);font-size:13px
-}
-.volver:hover,.boton-salir:hover{border-color:var(--verde);color:var(--verde)}
-.hero{
-    position:relative;isolation:isolate;overflow:hidden;
-    min-height:235px;padding:45px 5%;display:flex;align-items:center;
-    border-bottom:1px solid var(--borde);
-    background:#101a14 url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=85") center 48%/cover no-repeat
-}
-.hero::before{
-    content:"";position:absolute;inset:0;z-index:-1;
-    background:linear-gradient(90deg,#070d0df5 0%,#070d0dd9 43%,#070d0d30 100%)
-}
-.hero-contenido{width:min(1450px,100%);margin:auto}
-.sobrelinea{
-    color:var(--verde);font-size:11px;font-weight:900;
-    letter-spacing:3px;text-transform:uppercase
-}
-h1{
-    max-width:760px;margin:12px 0;font-size:clamp(35px,5vw,60px);
-    line-height:1.06;letter-spacing:-1.7px
-}
-h1 span{color:var(--verde)}
-.hero p{max-width:550px;color:#d1dbd5;font-size:15px}
-main{width:min(1500px,92%);margin:32px auto 55px}
-.herramientas{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:18px;flex-wrap:wrap;margin-bottom:20px
-}
-.herramientas h2{margin:0;font-size:25px;letter-spacing:-.5px}
-.subtitulo{margin:4px 0 0;color:var(--secundario);font-size:13px}
-.acciones{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
-.busqueda{
-    width:250px;max-width:100%;padding:11px 14px;
-    border:1px solid var(--borde);border-radius:9px;
-    background:#0c1414;color:white
-}
-.busqueda::placeholder{color:#83938e}
-.boton-principal{
-    padding:11px 16px;border:1px solid var(--verde);
-    border-radius:9px;background:var(--verde);color:#11190b;
-    font-weight:850;transition:filter .2s,transform .2s
-}
-.boton-principal:hover{filter:brightness(1.08);transform:translateY(-1px)}
-.boton-principal:disabled{opacity:.6;cursor:wait;transform:none}
-#mensaje{
-    margin:0 0 18px;padding:10px 13px;border:1px solid var(--borde);
-    border-radius:9px;background:#101919;color:var(--secundario);font-size:12px
-}
-.contenido{
-    display:grid;grid-template-columns:minmax(0,1fr) 285px;
-    align-items:start;gap:22px
-}
-.rejilla{
-    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px
-}
-.tarjeta-producto{
-    min-width:0;overflow:hidden;border:1px solid var(--borde);
-    border-radius:12px;background:linear-gradient(145deg,#152120,#0c1414 80%);
-    transition:transform .2s,border-color .2s,box-shadow .2s
-}
-.tarjeta-producto:hover{
-    transform:translateY(-4px);border-color:#a3f54285;
-    box-shadow:0 14px 30px #0005
-}
-.producto-imagen{
-    position:relative;height:165px;overflow:hidden;background:#15201b;
-    border-bottom:1px solid var(--borde)
-}
-.producto-imagen img{
-    display:block;width:100%;height:100%;object-fit:cover;
-    transition:transform .35s
-}
-.tarjeta-producto:hover .producto-imagen img{transform:scale(1.06)}
-.producto-imagen::after{
-    content:"";position:absolute;inset:45% 0 0;
-    pointer-events:none;background:linear-gradient(transparent,#07100b55)
-}
-.producto-info{padding:13px}
-.producto-info h3{
-    min-height:39px;margin:0 0 9px;font-size:14px;line-height:1.4;
-    overflow-wrap:anywhere
-}
-.producto-detalle{margin:5px 0;color:var(--secundario);font-size:11px}
-.producto-pie{
-    display:flex;align-items:center;justify-content:space-between;
-    flex-wrap:wrap;gap:7px;margin-top:12px;padding-top:10px;
-    border-top:1px solid var(--borde)
-}
-.precio{color:var(--verde);font-size:19px;font-weight:900}
-.etiqueta{
-    display:inline-flex;padding:4px 7px;border:1px solid #a3f54238;
-    border-radius:30px;background:#a3f54212;color:var(--verde);
-    font-size:9px;font-weight:800
-}
-.panel-acceso{
-    position:sticky;top:18px;padding:22px;border:1px solid #33453c;
-    border-radius:15px;background:linear-gradient(150deg,#172422,#0d1515);
-    box-shadow:0 16px 40px #0003
-}
-.candado{
-    width:43px;height:43px;display:grid;place-items:center;
-    border-radius:12px;background:#a3f54219;color:var(--verde);font-size:22px
-}
-.panel-acceso h2{margin:12px 0 5px;font-size:23px}
-.detalle{color:var(--secundario);font-size:12px}
-.campo{margin-top:15px}
-.campo label{display:block;margin-bottom:6px;font-size:12px;font-weight:750}
-.campo input{
-    width:100%;min-width:0;padding:11px;border:1px solid #40524d;
-    border-radius:8px;background:#091111;color:white
-}
-.campo input::placeholder{color:#758781}
-.boton-login{width:100%;margin-top:19px}
-#mensajeLogin{overflow-wrap:anywhere}
-.seguridad{
-    margin-top:18px;padding-top:14px;border-top:1px solid var(--borde);
-    color:var(--secundario);font-size:10px;text-align:center
-}
-.sin-resultados{
-    padding:28px 18px;border:1px dashed var(--borde);
-    border-radius:12px;color:var(--secundario);text-align:center
-}
-.oculto{display:none!important}
-footer{
-    display:flex;justify-content:center;align-items:center;gap:12px;
-    flex-wrap:wrap;padding:24px 5%;border-top:1px solid var(--borde);
-    color:var(--secundario);font-size:12px;text-align:center
-}
-footer strong{color:var(--verde);letter-spacing:1.5px}
-@media(min-width:1600px){
-    .rejilla{grid-template-columns:repeat(4,minmax(0,1fr))}
-    .producto-imagen{height:190px}
-}
-@media(max-width:1250px){
-    .contenido{grid-template-columns:minmax(0,1fr) 265px}
-    .rejilla{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-@media(max-width:900px){
-    .contenido{grid-template-columns:1fr}
-    .panel-acceso{position:static;grid-row:1}
-    .rejilla{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-@media(max-width:650px){
-    .barra{padding:13px 4%}
-    .marca{font-size:19px}
-    .hero{min-height:215px;padding:35px 5%}
-    main{width:92%;margin-top:23px}
-    .herramientas{align-items:stretch}
-    .acciones{width:100%}
-    .busqueda{flex:1;width:100%}
-    .rejilla{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-    .producto-imagen{height:145px}
-    .producto-info{padding:10px}
-    .producto-info h3{font-size:13px;min-height:36px}
-    .precio{font-size:17px}
-}
-@media(max-width:360px){
-    .producto-imagen{height:115px}
-    .producto-pie{align-items:flex-start;flex-direction:column}
-}
-</style>
+<link rel="stylesheet" href="/css/tobyfit.css">
+<script src="/js/visual.js" defer></script>
 </head>
 
-<body>
-<header class="barra">
-    <a class="marca" href="/">GYM <span>TOBYFIT</span></a>
-    <nav class="navegacion" aria-label="Navegación principal">
-        <a class="volver" href="/">← Volver al inicio</a>
-        <button id="cerrarSesion" class="boton-salir oculto" type="button">
-            Cerrar sesión
-        </button>
-    </nav>
-</header>
+<body data-page="productos">
+<a class="skip-link" href="#contenido-principal">Saltar al contenido</a><header class="site-header"><a class="brand" href="/index.html" aria-label="TobyFit, inicio"><span class="brand-symbol" aria-hidden="true">T</span><span>TOBY<span class="brand-lime">FIT</span><small>GYM & LIFESTYLE</small></span></a><button type="button" class="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menú">☰</button><nav id="site-nav" class="site-nav" aria-label="Navegación principal"><a href="/index.html">Inicio</a><a href="/productos.html" aria-current="page">Productos</a><a href="/membresias.html">Membresías</a><a href="/rutinas.html">Rutinas</a></nav><div class="header-actions"><button id="cerrarSesion" class="boton-salir oculto" type="button">Cerrar sesión</button><a class="header-cta" href="/index.html#contacto">Contáctanos <span aria-hidden="true">↗</span></a></div></header>
 
-<section class="hero">
+<section class="hero page-hero">
     <div class="hero-contenido">
         <div class="sobrelinea">GYM TOBYFIT · ROPA Y ACCESORIOS</div>
         <h1>Equipa tu esfuerzo.<br><span>Supera tus límites.</span></h1>
@@ -222,7 +23,7 @@ footer strong{color:var(--verde);letter-spacing:1.5px}
     </div>
 </section>
 
-<main>
+<main id="contenido-principal" tabindex="-1">
     <div class="herramientas">
         <div>
             <h2>Catálogo de productos</h2>
@@ -275,12 +76,7 @@ footer strong{color:var(--verde);letter-spacing:1.5px}
     </div>
 </main>
 
-<footer>
-    <span>© 2026 Gym TobyFit</span>
-    <span>·</span>
-    <span>Catálogo de productos</span>
-    <strong>SUPERA TUS LÍMITES</strong>
-</footer>
+<footer class="site-footer"><div class="footer-top"><div><a class="brand" href="/index.html" aria-label="TobyFit, inicio"><span class="brand-symbol" aria-hidden="true">T</span><span>TOBY<span class="brand-lime">FIT</span><small>GYM & LIFESTYLE</small></span></a><p>Entrena con propósito,<br>avanza con disciplina.</p></div><div class="footer-links"><span>EXPLORA TOBYFIT</span><a href="/productos.html">Productos ↗</a><a href="/membresias.html">Membresías ↗</a><a href="/rutinas.html">Rutinas ↗</a></div><div class="footer-manifesto">TU ESFUERZO.<br><span>TU MEJOR VERSIÓN.</span></div></div><div class="footer-bottom"><span>© 2026 Gym TobyFit · Proyecto académico de gestión de gimnasio.</span><a href="/index.html#inicio">Volver arriba ↑</a></div></footer>
 
 <script>
 const contenedor = document.getElementById("productos");
@@ -462,7 +258,7 @@ async function cargarProductos() {
     mensaje.textContent = "Cargando catálogo...";
     botonRecargar.disabled = true;
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token") || localStorage.getItem("tobyfit_token");
     botonCerrarSesion.classList.toggle("oculto", !token);
 
     if (!token) {
@@ -483,6 +279,7 @@ async function cargarProductos() {
 
         if (respuesta.status === 401 || respuesta.status === 403) {
             localStorage.removeItem("token");
+            localStorage.removeItem("tobyfit_token");
             listaProductos = [];
             mensaje.textContent = "Tu sesión expiró o no tienes permiso. Inicia sesión nuevamente.";
             acceso.classList.remove("oculto");
@@ -551,6 +348,7 @@ formularioLogin.addEventListener("submit", async function(evento) {
         }
 
         localStorage.setItem("token", datos.token);
+        localStorage.setItem("tobyfit_token", datos.token);
         formularioLogin.reset();
         mensajeLogin.textContent = "¡Bienvenido a Gym TobyFit!";
         await cargarProductos();
@@ -564,6 +362,7 @@ formularioLogin.addEventListener("submit", async function(evento) {
 
 botonCerrarSesion.addEventListener("click", function() {
     localStorage.removeItem("token");
+    localStorage.removeItem("tobyfit_token");
     listaProductos = [];
     contenedor.replaceChildren();
     buscarProducto.value = "";

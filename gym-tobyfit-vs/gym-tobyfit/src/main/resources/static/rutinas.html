@@ -1,53 +1,20 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rutinas | TOBYFIT</title>
-<style>
-:root{--bg:#0b0e0d;--panel:#151a17;--green:#b6f36b;--muted:#a3aca5;--line:#29332c}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#f5f7f5;font-family:Arial,Helvetica,sans-serif}
-header{padding:22px 7%;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.logo{font-size:22px;font-weight:900;letter-spacing:2px}.logo span{color:var(--green)}
-nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:#d8dfd9;text-decoration:none;font-size:14px}nav a:hover{color:var(--green)}
-main{max-width:1150px;margin:auto;padding:55px 24px 75px}
-.eyebrow{color:var(--green);font-size:12px;font-weight:bold;letter-spacing:3px;text-transform:uppercase}
-h1{font-size:clamp(34px,5vw,54px);margin:13px 0} .intro{color:var(--muted);line-height:1.7;max-width:680px}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin:25px 0}
-button{border:0;border-radius:9px;padding:12px 17px;font-weight:bold;cursor:pointer}
-.primary{background:var(--green);color:#10150e}.secondary{background:#222b24;color:white;border:1px solid #38443a}
-button:hover{filter:brightness(1.08)}
-#login{background:var(--panel);border:1px solid var(--line);padding:22px;border-radius:16px;max-width:430px;margin:24px 0}
-label{display:block;margin:12px 0 7px;color:#dbe2dc;font-size:13px}
-input{width:100%;padding:12px;border-radius:8px;border:1px solid #354038;background:#0d110e;color:white}
-#message{margin:16px 0;color:var(--muted);line-height:1.6}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:18px;margin-top:28px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:23px;transition:transform .2s,border-color .2s}
-.card:hover{transform:translateY(-3px);border-color:var(--green)}
-.tag{display:inline-block;color:var(--green);background:#243121;padding:7px 10px;border-radius:20px;font-size:12px;font-weight:bold}
-.card h2{font-size:22px;margin:17px 0 10px}.card p{color:var(--muted);line-height:1.65}
-.meta{font-size:13px;color:#dce5dd;margin-top:16px;padding-top:15px;border-top:1px solid var(--line)}
-.empty{padding:30px;background:var(--panel);border:1px solid var(--line);border-radius:14px;color:var(--muted);line-height:1.7}
-footer{border-top:1px solid var(--line);padding:25px;text-align:center;color:#859087;font-size:13px}
-.hidden{display:none!important}
-</style>
+<link rel="stylesheet" href="/css/tobyfit.css">
+<script src="/js/visual.js" defer></script>
 </head>
-<body>
-<header>
-  <div class="logo">TOBY<span>FIT</span></div>
-  <nav>
-    <a href="/index.html">Inicio</a>
-    <a href="/productos.html">Productos</a>
-    <a href="/membresias.html">Membresías</a>
-    <a href="/rutinas.html">Rutinas</a>
-  </nav>
-</header>
-<main>
-  <div class="eyebrow">Tu entrenamiento, tu progreso</div>
+<body data-page="rutinas">
+<a class="skip-link" href="#contenido-principal">Saltar al contenido</a><header class="site-header"><a class="brand" href="/index.html" aria-label="TobyFit, inicio"><span class="brand-symbol" aria-hidden="true">T</span><span>TOBY<span class="brand-lime">FIT</span><small>GYM & LIFESTYLE</small></span></a><button type="button" class="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menú">☰</button><nav id="site-nav" class="site-nav" aria-label="Navegación principal"><a href="/index.html">Inicio</a><a href="/productos.html">Productos</a><a href="/membresias.html">Membresías</a><a href="/rutinas.html" aria-current="page">Rutinas</a></nav><div class="header-actions"><a class="header-cta" href="/index.html#contacto">Contáctanos <span aria-hidden="true">↗</span></a></div></header>
+<main id="contenido-principal" tabindex="-1">
+<section class="page-intro">  <div class="eyebrow">Tu entrenamiento, tu progreso</div>
   <h1>Encuentra tu rutina</h1>
   <p class="intro">Explora programas de entrenamiento según tus objetivos y nivel. Elige una rutina, mantén la constancia y avanza paso a paso.</p>
 
+</section>
   <section id="login">
     <h2>Accede a tu cuenta</h2>
     <p class="intro">Inicia sesión para consultar las rutinas disponibles.</p>
@@ -67,7 +34,7 @@ footer{border-top:1px solid var(--line);padding:25px;text-align:center;color:#85
   </div>
   <section id="routines" class="grid" aria-live="polite"></section>
 </main>
-<footer>TOBYFIT · Entrena con propósito, avanza con disciplina.</footer>
+<footer class="site-footer"><div class="footer-top"><div><a class="brand" href="/index.html" aria-label="TobyFit, inicio"><span class="brand-symbol" aria-hidden="true">T</span><span>TOBY<span class="brand-lime">FIT</span><small>GYM & LIFESTYLE</small></span></a><p>Entrena con propósito,<br>avanza con disciplina.</p></div><div class="footer-links"><span>EXPLORA TOBYFIT</span><a href="/productos.html">Productos ↗</a><a href="/membresias.html">Membresías ↗</a><a href="/rutinas.html">Rutinas ↗</a></div><div class="footer-manifesto">TU ESFUERZO.<br><span>TU MEJOR VERSIÓN.</span></div></div><div class="footer-bottom"><span>© 2026 Gym TobyFit · Proyecto académico de gestión de gimnasio.</span><a href="/index.html#inicio">Volver arriba ↑</a></div></footer>
 <script>
 const API='/api';
 const loginBox=document.getElementById('login');
@@ -111,14 +78,18 @@ function showRoutines(items){
   });
   showMessage('Se encontraron '+items.length+' rutina(s).');
 }
+function getToken(){return localStorage.getItem('tobyfit_token')||localStorage.getItem('token');}
+function saveToken(t){localStorage.setItem('tobyfit_token',t);localStorage.setItem('token',t);}
+function clearToken(){localStorage.removeItem('tobyfit_token');localStorage.removeItem('token');}
+
 async function loadRoutines(){
-  const token=localStorage.getItem('tobyfit_token');
+  const token=getToken();
   if(!token){setLoggedIn(false);showMessage('Inicia sesión para cargar las rutinas.');return}
   showMessage('Cargando rutinas...');
   try{
     const response=await fetch(API+'/rutinas',{headers:{Authorization:'Bearer '+token}});
     if(response.status===401||response.status===403){
-      localStorage.removeItem('tobyfit_token');
+      clearToken();
       setLoggedIn(false);
       showMessage('Tu sesión expiró o no tienes autorización. Inicia sesión nuevamente.');
       return;
@@ -144,19 +115,19 @@ loginForm.addEventListener('submit',async event=>{
     if(!response.ok)throw new Error('No se pudo iniciar sesión. Verifica tus datos.');
     const data=await response.json();
     if(!data.token)throw new Error('La respuesta del servidor no contiene un token.');
-    localStorage.setItem('tobyfit_token',data.token);
+    saveToken(data.token);
     setLoggedIn(true);
     await loadRoutines();
   }catch(error){showMessage(error.message||'Error al iniciar sesión.');}
 });
 document.getElementById('refresh').addEventListener('click',loadRoutines);
 document.getElementById('logout').addEventListener('click',()=>{
-  localStorage.removeItem('tobyfit_token');
+  clearToken();
   routines.replaceChildren();
   setLoggedIn(false);
   showMessage('Has cerrado sesión correctamente.');
 });
-if(localStorage.getItem('tobyfit_token')){setLoggedIn(true);loadRoutines()}
+if(getToken()){setLoggedIn(true);loadRoutines()}
 </script>
 </body>
 </html>

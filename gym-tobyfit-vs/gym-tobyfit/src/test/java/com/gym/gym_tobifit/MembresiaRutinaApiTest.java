@@ -1,34 +1,39 @@
 
 package com.gym.gym_tobifit;
 
+import java.util.Collections;
+import java.util.Optional;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.web.servlet.MockMvc;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gym.gym_tobifit.controllers.api.MembresiaApiController;
 import com.gym.gym_tobifit.controllers.api.RutinaApiController;
 import com.gym.gym_tobifit.models.Membresia;
 import com.gym.gym_tobifit.models.Rutina;
-import com.gym.gym_tobifit.services.MembresiaService;
-import com.gym.gym_tobifit.services.RutinaService;
-import com.gym.gym_tobifit.security.JwtUtil;
 import com.gym.gym_tobifit.security.JwtService;
+import com.gym.gym_tobifit.security.JwtUtil;
 import com.gym.gym_tobifit.security.MyUserDetailsService;
 import com.gym.gym_tobifit.security.SecurityErrorHandler;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-
-import java.util.Collections;
-import java.util.Optional;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import com.gym.gym_tobifit.services.MembresiaService;
+import com.gym.gym_tobifit.services.RutinaService;
 
 @WebMvcTest(controllers = {
         MembresiaApiController.class,
@@ -253,6 +258,54 @@ class MembresiaRutinaApiTest {
                 .andExpect(status().isNoContent());
 
         verify(rutinaService).eliminar(1L);
+    }
+
+    @Test
+    void listarMembresiasVaciasDevuelve200() throws Exception {
+        when(membresiaService.listar())
+                .thenReturn(Collections.emptyList());
+
+        mockMvc.perform(get("/api/membresias"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").isArray())
+                .andExpect(jsonPath("$.length()").value(0));
+
+        verify(membresiaService).listar();
+    }
+
+    @Test
+    void crearMembresiaConJsonInvalidoDevuelve400() throws Exception {
+        mockMvc.perform(post("/api/membresias")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{json-invalido"))
+                .andExpect(status().isBadRequest());
+
+        verify(membresiaService, never())
+                .guardar(any(Membresia.class));
+    }
+
+    @Test
+    void listarRutinasVaciasDevuelve200() throws Exception {
+        when(rutinaService.listar())
+                .thenReturn(Collections.emptyList());
+
+        mockMvc.perform(get("/api/rutinas"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").isArray())
+                .andExpect(jsonPath("$.length()").value(0));
+
+        verify(rutinaService).listar();
+    }
+
+    @Test
+    void crearRutinaConJsonInvalidoDevuelve400() throws Exception {
+        mockMvc.perform(post("/api/rutinas")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{json-invalido"))
+                .andExpect(status().isBadRequest());
+
+        verify(rutinaService, never())
+                .guardar(any(Rutina.class));
     }
 
 

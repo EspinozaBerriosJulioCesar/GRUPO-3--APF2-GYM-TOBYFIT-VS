@@ -1,0 +1,833 @@
+{
+  "comparison": "uploaded ZIP -> visual deliverable",
+  "modified_original_files": [
+    "gym-tobyfit-vs/gym-tobyfit/src/main/resources/static/membresias.html",
+    "gym-tobyfit-vs/gym-tobyfit/src/main/resources/static/index.html",
+    "gym-tobyfit-vs/gym-tobyfit/src/main/resources/static/rutinas.html",
+    "gym-tobyfit-vs/gym-tobyfit/src/main/resources/static/productos.html"
+  ],
+  "missing_original_files": [],
+  "unchanged_original_file_count": 186,
+  "unchanged_original_files": [
+    {
+      "path": "Grupo3-GymTobyFit-Diapositivas.pdf",
+      "sha256": "34235c77b2d31e17a565da472e6cce72ef776e0789db77b84499f0fa1916b0af"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "5dd1eba17c68c536304cce2f791f753bdf5550ef0aa13374d6d4548dfc3f0534"
+    },
+    {
+      "path": "gym_tobyfit.sql",
+      "sha256": "2c9207d05257e7dcd95e5e09b2c15918a3a848dc1007e5ebfc80fe10cb31aeed"
+    },
+    {
+      "path": "gym_proyect.postman_collection.json",
+      "sha256": "02fb5096823f6b077180ef3cdaab71d93aa05229b85c7719690b8fd0e6faca21"
+    },
+    {
+      "path": "Grupo3-GymTobyFit-Documentación.docx",
+      "sha256": "2fdabae5813f37733e676d5edf032e6e8b784309051697ced3a00558a599b8ee"
+    },
+    {
+      "path": ".git/description",
+      "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee"
+    },
+    {
+      "path": ".git/FETCH_HEAD",
+      "sha256": "7bcf189a7a534bb5d486250f2284c03ad567ff3c26049c337cde5277d1c58327"
+    },
+    {
+      "path": ".git/HEAD",
+      "sha256": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80"
+    },
+    {
+      "path": ".git/index",
+      "sha256": "77f00df131cc103e6ae6bdda6d8963688f4f5757f471eea37a2578557a4d70dc"
+    },
+    {
+      "path": ".git/config",
+      "sha256": "2f50a2107762c90fa4e131b30ceb692c830c44a3b980c09c673fbbc36c4beee7"
+    },
+    {
+      "path": ".git/ORIG_HEAD",
+      "sha256": "ed33ae3e7d1fbc3ab91a89852a015cbe5e1ac45c6fd8a5577c075a0fef656fa8"
+    },
+    {
+      "path": ".git/COMMIT_EDITMSG",
+      "sha256": "98d7c6238b21b13b1ee68be50f86cad35bf218b59f0c805a9081c7062dab9974"
+    },
+    {
+      "path": ".git/info/refs",
+      "sha256": "3b042f64fbdabafac785f2b56783983145fc78abc8baedfb888c9cd132dd8bb5"
+    },
+    {
+      "path": ".git/info/exclude",
+      "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1"
+    },
+    {
+      "path": ".git/hooks/pre-applypatch.sample",
+      "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475"
+    },
+    {
+      "path": ".git/hooks/sendemail-validate.sample",
+      "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92"
+    },
+    {
+      "path": ".git/hooks/pre-rebase.sample",
+      "sha256": "4febce867790052338076f4e66cc47efb14879d18097d1d61c8261859eaaa7b3"
+    },
+    {
+      "path": ".git/hooks/push-to-checkout.sample",
+      "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f"
+    },
+    {
+      "path": ".git/hooks/pre-merge-commit.sample",
+      "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53"
+    },
+    {
+      "path": ".git/hooks/commit-msg.sample",
+      "sha256": "efc1401b0e99d1ff51494d154d98b46c1e99059bcd8bf9f73cecde19fd3eb23b"
+    },
+    {
+      "path": ".git/hooks/pre-commit.sample",
+      "sha256": "57185b7b9f05239d7ab52db045f5b89eb31348d7b2177eab214f5eb872e1971b"
+    },
+    {
+      "path": ".git/hooks/pre-push.sample",
+      "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a"
+    },
+    {
+      "path": ".git/hooks/update.sample",
+      "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106"
+    },
+    {
+      "path": ".git/hooks/fsmonitor-watchman.sample",
+      "sha256": "9159720099ad5595b8e66645cbfd47763c1e920f46e0b50ae75e642bbec57ef0"
+    },
+    {
+      "path": ".git/hooks/pre-receive.sample",
+      "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989"
+    },
+    {
+      "path": ".git/hooks/prepare-commit-msg.sample",
+      "sha256": "e9ddcaa4189fddd25ed97fc8c789eca7b6ca16390b2392ae3276f0c8e1aa4619"
+    },
+    {
+      "path": ".git/hooks/post-update.sample",
+      "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5"
+    },
+    {
+      "path": ".git/hooks/applypatch-msg.sample",
+      "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7"
+    },
+    {
+      "path": ".git/logs/HEAD",
+      "sha256": "942512db29537d12fdfe1800f27081919798e4a020f5875695151d2cd81ad6f2"
+    },
+    {
+      "path": ".git/refs/stash",
+      "sha256": "b7e7fc7caa29a56328ab610e4ea476fa398c86c617cef38116d499d804876141"
+    },
+    {
+      "path": ".git/objects/12/844d29cce9dfc231d7093aadd9c884c2b31b2c",
+      "sha256": "65f4f21e431effc26d8a3d6c5d60acdac4eb3e638901a56da8ca8ec8568b05d8"
+    },
+    {
+      "path": ".git/objects/info/packs",
+      "sha256": "efdce27744a42f0759c45bfa4757cc3d0744b3751830dc5a00e285416748864f"
+    },
+    {
+      "path": ".git/objects/01/2a2f290f1ce7998b0ffd2e72a2a2a85ad27ebd",
+      "sha256": "9a984ea033ea091dfd69a619a671e1350512858ea51f8611ba336cc27e026a30"
+    },
+    {
+      "path": ".git/objects/82/c985b686f06cabadb5d00eb17f97c5c8aed458",
+      "sha256": "259c566b87b06ba87facc9d50a1bebbcd8dc35085235b7a37cd06c8ce1d6a9a0"
+    },
+    {
+      "path": ".git/objects/06/077d8bf4825cc1aa8928abd20c6d5eb5500cc6",
+      "sha256": "af2e996365e86ef42a4facf72906628265cd6eccc1ed43a7301ca83708695da0"
+    },
+    {
+      "path": ".git/objects/c7/c26972481d460465a512efb65ff5bfc7dadad5",
+      "sha256": "9490bd9f75aadd432e075aeffc5e775d2e6b0830355773424d51e0fd03338a32"
+    },
+    {
+      "path": ".git/objects/c7/52ce013e1257d75dc37ff449573f72dd1bf5db",
+      "sha256": "4221c7d851ad1fd8041da538bd51139a6603abff3990e47f59a974d45e8198bf"
+    },
+    {
+      "path": ".git/objects/a6/a34029fdceb8c748b0d5a43bfce54a5ae22ca2",
+      "sha256": "1ab4607890d2df17fcad9cd8d5a2133edd9fa968f2f9fd5da77aaacf3dc23864"
+    },
+    {
+      "path": ".git/objects/e1/6b173548dcad0cc6f104e2189e40ef00572c97",
+      "sha256": "ca6ab80ef4980823e0d55b97b260f26fb3a9b7430baaf9270ea81da03c56fa88"
+    },
+    {
+      "path": ".git/objects/7e/e4f4e3658473784c372936015929bb7af14943",
+      "sha256": "043ad52086c4209db9fe6ec2356f50f35d80fc61467be7f68b025051a0cb1084"
+    },
+    {
+      "path": ".git/objects/eb/f91ca8d521b37eb587997cebf83ac6fec94e3b",
+      "sha256": "2071d0589c8d95ea6d18117e75c1cb61859d86e1de30bbcbf9451e56ad19191d"
+    },
+    {
+      "path": ".git/objects/74/35748fd0d505e108a2422b5bfc343f133fe63c",
+      "sha256": "eac177a25b3d7cbeecdbaf08d323d9746b3b5f7d100e42f0fd489b95f3753a66"
+    },
+    {
+      "path": ".git/objects/05/8d663f4088d6611c741b2c77ab10eb65c1a0c5",
+      "sha256": "0cc6127af108bbe7f8340880cb291f6f3391635ee62e9f4c79c3a066be84b185"
+    },
+    {
+      "path": ".git/objects/19/6053176e7550b9092f36346be4da15332e2613",
+      "sha256": "2c0e4c80e8f54cc9e10ae5292849faf6f886ff048622cabceede59ab3ca662d4"
+    },
+    {
+      "path": ".git/objects/4c/0e1383f6798c09105af64dfea6f5a91a74f6c0",
+      "sha256": "a021764b096d5f6447630bf33b88a53489b4a178085889fc871ac64734c93c61"
+    },
+    {
+      "path": ".git/objects/7c/059f4fffc7d64fead50e903a5cf5b57efbc9a5",
+      "sha256": "2d3c80a71ac9f00f2e56a8afe985462b32c51f5a183e02da1b7534f8e1acd9ac"
+    },
+    {
+      "path": ".git/objects/7f/980bcd1758487ca996a89e034a7cfb7a5f1217",
+      "sha256": "1b985cdbc45f269316f48f14660be81ea93c8eeee0c93e78bf9d850822fafff7"
+    },
+    {
+      "path": ".git/objects/20/25c01f6e20df52927ed25b2154f500d2b169e7",
+      "sha256": "dc1f7bcd0e99cc86f6d89c5e690760391ca55cbf6041bde35f1f77892a19ae7a"
+    },
+    {
+      "path": ".git/objects/e8/eb006cb8a0af84fdad02cc7812816f77d90b93",
+      "sha256": "c7fc4a0b6450f5c3ce86731d63462c92ec6726e548ec32113228dab29f056400"
+    },
+    {
+      "path": ".git/objects/pack/pack-99b83cbeaed78e5df6bfb3d555b7d5f7b04342ec.pack",
+      "sha256": "5e2ad4fdbe5deaec268f050a5a6e62c753db5db70ba67ce4ace77d2573f840c8"
+    },
+    {
+      "path": ".git/objects/pack/pack-9b6209fcda5c22c5690f42b76d1dffdfcb988e9c.rev",
+      "sha256": "703c37c187ae0d1ec435a1cfc46768ae21b41c962b6a8e5dd8c90e53642173d1"
+    },
+    {
+      "path": ".git/objects/pack/pack-9b6209fcda5c22c5690f42b76d1dffdfcb988e9c.idx",
+      "sha256": "3b47e8efc85d0448a3f69e6637223d1935a946a3ac18a7d3eea4a64602c9c1f8"
+    },
+    {
+      "path": ".git/objects/pack/multi-pack-index",
+      "sha256": "3495bf874ebb130e99695c69480635ce68b6484fcdb7ec0b7c548efe986c5e81"
+    },
+    {
+      "path": ".git/objects/pack/pack-99b83cbeaed78e5df6bfb3d555b7d5f7b04342ec.idx",
+      "sha256": "455a706a501f2a9098cf85b599554dda261d4786c0733a51290bcce119f45cab"
+    },
+    {
+      "path": ".git/objects/pack/pack-99b83cbeaed78e5df6bfb3d555b7d5f7b04342ec.rev",
+      "sha256": "0c74ff3c08c1415b2c52b119910e9087b388d5523c48177f2f23b58d32c00d63"
+    },
+    {
+      "path": ".git/objects/pack/pack-99b83cbeaed78e5df6bfb3d555b7d5f7b04342ec.mtimes",
+      "sha256": "3ad92ab3c684cd8aaa8a8d1e92af5756227079ff01b44388e36772add88996be"
+    },
+    {
+      "path": ".git/objects/pack/pack-9b6209fcda5c22c5690f42b76d1dffdfcb988e9c.pack",
+      "sha256": "4cc0bec44eb5d9f0a646f2b08a94d9ce7694b5506056913a07503cd062f84ddd"
+    },
+    {
+      "path": ".git/objects/a7/0d4177aaf8bd10223915d6b1759e8bf8e6c798",
+      "sha256": "cdd27200c75a5a042941c140f0cdc773778e1489417ce4a5ab22aa0eacc772d9"
+    },
+    {
+      "path": ".git/objects/e4/e32a728eb77f62f89b2f7c8fb5d02cc1b55a28",
+      "sha256": "243f7286102740bbba18cdf8a51b740088eb1be8fc2fbf47ad49199ec3d7ac8b"
+    },
+    {
+      "path": ".git/objects/94/87fb8bbdbbdff2f9a78ee946407412eb09ddde",
+      "sha256": "a53997ed03f1eeb07a55f1c3153b8d6cc8c4442d435e5c31e05c781e59e3142f"
+    },
+    {
+      "path": ".git/objects/a9/c7ce8611b1a5ffad05569fc0dda4ca9cc789ac",
+      "sha256": "054966f793c94dbb030b64ce220debf6a39ddb8405aeec561b7babff47cdf8e2"
+    },
+    {
+      "path": ".git/objects/e6/9279cbfbb20284554832aad9e0d99acd4df07b",
+      "sha256": "cf318f91550129343940aa60a5232f8febe57a1d87abcdedab33b2d1b4bf4d96"
+    },
+    {
+      "path": ".git/logs/refs/stash",
+      "sha256": "c9c8f69dd65cdc56e0ff5c1adde6f40f6d4d048658e9a74ff62c5560a5685f49"
+    },
+    {
+      "path": ".git/logs/refs/heads/main",
+      "sha256": "1f86f4900ed2c9d2f2bd596eecd5f8eb3beee83a2ef75f0d76b531b877d7a422"
+    },
+    {
+      "path": ".git/logs/refs/remotes/origin/main",
+      "sha256": "39834e5f0b40041299fb6d41d8163794432146565db994bbe06c25058274c517"
+    },
+    {
+      "path": ".git/refs/heads/main",
+      "sha256": "ed33ae3e7d1fbc3ab91a89852a015cbe5e1ac45c6fd8a5577c075a0fef656fa8"
+    },
+    {
+      "path": ".git/refs/remotes/origin/main",
+      "sha256": "8177a7a70830f416ffbc93733f89b921e7f00ff859eb71d59244d3d24b66940c"
+    },
+    {
+      "path": ".github/workflows/maven.yml",
+      "sha256": "3e4ffe3a16484a4f9e83a2451b4292c34f8f357606565bde0c179b1112393ac3"
+    },
+    {
+      "path": ".github/modernize/java-upgrade/.gitignore",
+      "sha256": "a31a11a8565c1a92ee2b47b36a4ac2ff4320a3f73645201d5736a602d3eba46f"
+    },
+    {
+      "path": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.ps1",
+      "sha256": "3d94791ecd4146c2436fa9034e05945aaeacfc4bab7a23fbccb9945fb7f38bf0"
+    },
+    {
+      "path": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.sh",
+      "sha256": "ee1b0710801cd4e9bb087a755ca7b1616ee79912849b5b63974d6a9ea891e959"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/.classpath",
+      "sha256": "95ec62bbf7ee49999cf5f0afb56461f69a4afbdc41a3059d45d4a049d52db6a2"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/.gitignore",
+      "sha256": "089382e4d7944ab6cb6900a1269678ebff93c00d441ada788cd05a8da182b22b"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/pom.xml",
+      "sha256": "c526842845f8cd4b3c7964e874417d81471003bd41ae6b8abc6a98bf9ced02ed"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/mvnw",
+      "sha256": "cae96cef89ebea3531221f4ae17c23cf8edf67d00eae8306d4186ae1bbed4d02"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/.gitattributes",
+      "sha256": "5775a77ad2f6d12dde053a3fb0cca4309189163f0888f4e7e984cd0ab327028b"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/.factorypath",
+      "sha256": "50947ba3c09fabca42ce72f686430cec35787a7160376cfbcccc6ee245dfdf70"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/error-arranque.log",
+      "sha256": "639673e8444a7daa5793555670deb1ee8eb75af2261c5d245cad6b41252f6414"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/.project",
+      "sha256": "fd468535c8eee73cb9c74a33fc0507caa630cd9c1c32ee5c2eda9b4012939362"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/compilacion.log",
+      "sha256": "50c2303f2f379f2773df67a2386f307927c44f13c6e03bcad4e154a0bc746d9d"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/mvnw.cmd",
+      "sha256": "4a361e1374a3e5ad6d03e18e9adc0cf181ac5058ac6203b76f0ba3b456b56481"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/error-arranque.txt",
+      "sha256": "3b2a3cb8480b2f9aac2577be1a8944a69d25287030b8392e25280cb4971ae218"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/sql/01_usuarios_demo_jwt.sql",
+      "sha256": "604eed90ff9802d264b40fd87639fa579f58ab25c0424896afafd7820f52a8cd"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/respaldo-seguridad-20261010-200857/CustomUserDetailsService.java",
+      "sha256": "0e5dd1578e36fa1639851f38193db633886544bbe5707464eb9c2324efc7c101"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/respaldo-seguridad-20261010-200857/SecurityConfig.java",
+      "sha256": "37c6cf6eb392fb09af873939570de6274a0903e9fc11794b409b97f9bf2ffdf2"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/respaldo-seguridad-20261010-200857/JwtAuthenticationFilter.java",
+      "sha256": "2cbad40e3962953f22e213749ec28f63b248b37f32eaa15fb522c95ae6b09ee9"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/.settings/org.eclipse.jdt.apt.core.prefs",
+      "sha256": "c5c3e3666f87a76adec29e80592bad23e321bee38c3fa3c9ad639d06c5c4dcf3"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/.settings/org.eclipse.core.resources.prefs",
+      "sha256": "4461930d47c463ad77414aa636e06986a372d34d9fc4ff5de26ef27a0f752a3b"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/.settings/org.eclipse.m2e.core.prefs",
+      "sha256": "73e2bc42062725b3acdddce7ca0cdda43ec65574ed30391ea2d6fabdc269e0e4"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/.settings/org.springframework.ide.eclipse.prefs",
+      "sha256": "137634bdc4d461173a64545cd365d2582048df58d793d3ef21abdd39c4798235"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/.settings/org.eclipse.jdt.core.prefs",
+      "sha256": "b9199ccf77c76731a075b85b30fe5990c97120f1bc64c0113401c16769c6418c"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/scripts/probar_jwt.py",
+      "sha256": "41a5abd2d8fd7be528b9a445fca9262ca7f40529c6744ca6ca8fa28402aaf837"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/.mvn/wrapper/maven-wrapper.properties",
+      "sha256": "8f2a4438810348270d9d98f8d6d530541ddb7271e373db207e8ac381e0e35b62"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/test/resources/application-test.properties",
+      "sha256": "13e18160086488489ce8fb891872c9ce04d00fba73c99dd1d622715b404c64bb"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/test/java/com/gym/gym_tobifit/JwtUtilTest.java",
+      "sha256": "cf1949d883a6551a9c2076637fbf419e7606a0d71a021e744f56ebc121ddbc67"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/test/java/com/gym/gym_tobifit/ApiControllersTest.java",
+      "sha256": "8f9e9db257a8e4f51b95ce592897919d41f67ca8b6b77db6712ebb1be1201a1c"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/test/java/com/gym/gym_tobifit/MembresiaRutinaApiTest.java",
+      "sha256": "c9587e0294e0d29fd3030c03c6218af8195193488c10687c2fcec9c0cc3031ca"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/test/java/com/gym/gym_tobifit/JwtSecurityIntegrationTest.java",
+      "sha256": "bbdff731c147627816695478b2c7068d1fdb91aa9c446be63c9e274463910390"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker",
+      "sha256": "8e36770f172c8fbceb667f710a94673562cbe3297f410077b00db20874708ab0"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/resources/application-demo.properties",
+      "sha256": "4a01b6a8ccc7cda8bd209e787cee262894bec5121bb66d219639a8ccfcf29fad"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/resources/application.properties",
+      "sha256": "db57ab5ef1c4817c8ba69088c75a6062afb21c403c85d39e4998f66a3e7bffb5"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/GymTobifitApplication.java",
+      "sha256": "2d201cfa65e09b22db4e9e599e5de70c4f69d5fe9aaa8e5097cd93f9c2c2890c"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/models/Usuario.java",
+      "sha256": "2da7c7bf65a189a85b85b34dfd8d41ee18d5f5c27a5d2e7d0b4cf4d06c5f5dd3"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/models/Rutina.java",
+      "sha256": "4aad0452ca8e5c37f2c8a1b23a5c6b0762e4ef9a39364b077624a72b6147d608"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/models/Membresia.java",
+      "sha256": "f6ac99aa0477dd3251435f504fe683cfe01535a91e0a1750dcceea1701ce20b3"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/models/Producto.java",
+      "sha256": "ec3f3897169befe9b71ea7e7321e5c2bf60c2223938e26ff4c0fdb7816477dfe"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/config/WebSecurityConfig.java",
+      "sha256": "bcaabe47a4d61257498f4d6f5429d2d0e534246f20149a1e957084924a2c76fd"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/config/DemoDataConfig.java",
+      "sha256": "7ac16a928d650c294e51bb3ee0badfa8b0e0fb5cca3a313ddebaf10658fa076a"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/repositories/MembresiaRepository.java",
+      "sha256": "ae07551ac774722dd6ae1946a7aa5b916f6914b517c3a102e4ec1e1f5fe9271c"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/repositories/ProductoRepository.java",
+      "sha256": "648579eb70e48181ce79ed51ffae4a926e223ad988a01997a29d76e9dcc97c62"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/repositories/UsuarioRepository.java",
+      "sha256": "bb811c8aaad2f9a0550d75a83eb75cec3977336d404799d1575da2294b145db9"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/repositories/RutinaRepository.java",
+      "sha256": "b499df1f4fdfe7c72da4ad31f1696cf43e50f251a11f3e1048180c06953411b9"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/services/ProductoService.java",
+      "sha256": "0e34babc87239bd19be6795edfb8e59230b1cfb15aa0d8ae4e5155a905c7f103"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/services/MembresiaService.java",
+      "sha256": "64f1ae079ed88aeca5e86797ea5fcb26278e25d16d557ab9c8257115c2666adc"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/services/RutinaService.java",
+      "sha256": "bc6f2d1174f5981dec05e170f70649af358998dddc9393433b85ecef56b8c262"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/services/UsuarioService.java",
+      "sha256": "2744a1cbdfe1e2aa4a5af6ef66f0c0d6ffd66a6389b11fe3f7b928d38bf120af"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/dto/AuthRequest.java",
+      "sha256": "7551590c663c337a9c7c0d1c7e6351e547f2dc52afb7718bd338619610394d10"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/dto/LoginRequest.java",
+      "sha256": "c85130d7efd99b495930603b1086c1664cde135caa3d055d4fd278f7c7626b89"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/dto/LoginResponse.java",
+      "sha256": "f32bea168970722e724c9103665d1827c7a32da65b609948f4dee80512f62de3"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/security/JwtFilter.java",
+      "sha256": "4a0e71d3c58d29286dca985aae80d4e166aa08a84816b79aa1430655e0222b8a"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/security/JwtService.java",
+      "sha256": "5596a88dd9d29c1f39e541a55b2ae12955d02f34519fa3fd5592e5d793296b55"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/security/SecurityErrorHandler.java",
+      "sha256": "76a1404349f8740fe78c4f93c82c862abee8bed2371c8cba3bb8a95554ac8908"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/security/JwtUtil.java",
+      "sha256": "10d55e39dcda2389f76d6f0f6762a7c1954c7c2b15b832c2ded2210372b5696d"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/security/MyUserDetailsService.java",
+      "sha256": "03b82a8af6c728a0a3c560a30aa0fd225f2d8dd28ca172e14c185e8e5855aec7"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/controllers/auth/AuthController.java",
+      "sha256": "db422d6f3e86851d0e40cb4b7d3f3adaa2f831e1d54380244d724f96792cd9c1"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/controllers/api/AuthController.java",
+      "sha256": "d99bd83daf499479da4938334c5229b2d2f6f080c67dda1f5e7aea9b9271da32"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/controllers/api/AuthExceptionHandler.java",
+      "sha256": "c4ceb27843e5d38455e3fcf59ae49118dfeabf9da24fb505d47f5fc95602d0cd"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/controllers/api/RutinaApiController.java",
+      "sha256": "405c65a71c606a5308d5390e14b7cea1507a2f7a4744a75b03f36e743278b9f5"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/controllers/api/ProductoApiController.java",
+      "sha256": "ee04fd500f37527b5e591eb3a7804d5c4fc3af0900c1d2b56ce9a0de98aa5934"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/controllers/api/UsuarioApiController.java",
+      "sha256": "6300fa801071088aa6bdf307fe899a13e1588248fbb7d739f5334cb6035bc8bc"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/src/main/java/com/gym/gym_tobifit/controllers/api/MembresiaApiController.java",
+      "sha256": "29f4ffca1a3bb4d699ebdf0bb51655b8c869316ca08c297080c9c1af73bf8247"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/test-classes/application-test.properties",
+      "sha256": "13e18160086488489ce8fb891872c9ce04d00fba73c99dd1d622715b404c64bb"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/application-demo.properties",
+      "sha256": "4a01b6a8ccc7cda8bd209e787cee262894bec5121bb66d219639a8ccfcf29fad"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/application.properties",
+      "sha256": "db57ab5ef1c4817c8ba69088c75a6062afb21c403c85d39e4998f66a3e7bffb5"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/surefire-reports/TEST-com.gym.gym_tobifit.JwtSecurityIntegrationTest.xml",
+      "sha256": "cb30bc5d0981b09dbea7d9a3580d20b149fb4d1bbca8bf02a0d5710e13716858"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/surefire-reports/com.gym.gym_tobifit.JwtUtilTest.txt",
+      "sha256": "a8eab2586f9c91a150a7868b09ca7fd663af5aafe96e699ee49fbd235970eafe"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/surefire-reports/com.gym.gym_tobifit.JwtSecurityIntegrationTest.txt",
+      "sha256": "f16328b0ac273a0ca154e01c56e8341692f98c252a9d297f3e4048d1b8439d52"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/surefire-reports/TEST-com.gym.gym_tobifit.ApiControllersTest.xml",
+      "sha256": "3192290728220c11ff1414aa5c1974a0ee4da5cf12cf08df70616c3a59e09e2f"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/surefire-reports/com.gym.gym_tobifit.MembresiaRutinaApiTest.txt",
+      "sha256": "bb4b4a6542136098199ec7e3486cc4447d77f0f78ec51a991e93ee5c1bec4f03"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/surefire-reports/com.gym.gym_tobifit.ApiControllersTest.txt",
+      "sha256": "ce3df37c9586a99a68e3820f9a07de28c6801a12c2117cbf9f978a2f0bf4b2b0"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/surefire-reports/TEST-com.gym.gym_tobifit.JwtUtilTest.xml",
+      "sha256": "dd9251cd708ac82b56a10391bee5df6f66d252cdfea141186d795d2d2327e77b"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/surefire-reports/TEST-com.gym.gym_tobifit.MembresiaRutinaApiTest.xml",
+      "sha256": "b85d9f0c973c8fe8959d9408f1909e1166a4b90a2163faf0208ee2d2626ab084"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/test-classes/mockito-extensions/org.mockito.plugins.MockMaker",
+      "sha256": "8e36770f172c8fbceb667f710a94673562cbe3297f410077b00db20874708ab0"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/test-classes/com/gym/gym_tobifit/ApiControllersTest.class",
+      "sha256": "8dbcc08842e1667a582cb7592f785506d4a6df2f2a13d760a1af8594e6acc5de"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/test-classes/com/gym/gym_tobifit/MembresiaRutinaApiTest.class",
+      "sha256": "2edc3ec0c12a4c6c0525ed534c9b8bfb30565af94c76e3a1c935b349d9d9985d"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/test-classes/com/gym/gym_tobifit/JwtUtilTest.class",
+      "sha256": "3d58d6e5ce36c76d13c80b567b840fbe688e9e098070f081c39e90f34c9908a8"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/test-classes/com/gym/gym_tobifit/JwtSecurityIntegrationTest.class",
+      "sha256": "0bff6fb63533bf5444df1c6f9deaf1dd117d9f53ffcf720d00575b0bb742ddd6"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst",
+      "sha256": "07185d2c311db48f7c49da28586d4432e870d51700e486bef28492efc7e28cac"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst",
+      "sha256": "18ad3e28075d501649bf0c8d26c997ebba73bf988227a589a51e789ef16282a7"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst",
+      "sha256": "b5bb14bb9af8f37eaf5864e39ee50bec3075bf39a5b5ac9e904bd1c0d6a75a80"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst",
+      "sha256": "62fb3805bb3ce329265918ed1153bf1a37b0902c5850e360262c06857d87a1dc"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/static/membresias.html",
+      "sha256": "225e0a689e0e28930506b1503eec504804809ae25ca2df3f1fb94284142970ee"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/static/index.html",
+      "sha256": "b97863acca5e2c0ed76e0b070f7ca5539bf9f3206608e5ce50e356a8be62aa6e"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/static/rutinas.html",
+      "sha256": "7fb4b9b5697caa8bbb2c31538dc812517d17a35159a1fcec077bdfecbe9a4050"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/static/productos.html",
+      "sha256": "d63650bf1af17408ec8029ba0ecef3914990852cf2949899b4a124893ae17b74"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/GymTobifitApplication.class",
+      "sha256": "4e12f36684628b24de5c7fa3bb674d69b96225f789afdbf89455aaeb28c27d91"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/models/Usuario.class",
+      "sha256": "51416bc0aa6889c8e17f7d9eb4f4db0abe2e7e4656333034d04d20ee077c310e"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/models/Rutina.class",
+      "sha256": "341005135dd1a4c1ccd9bb6b67e93c692f4b6dc3d9e4de257ab9b88fbb285d8c"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/models/Producto.class",
+      "sha256": "1fcc9711b9f9035500a178d62ac744293a09c5684cfb104baa14291665facb94"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/models/Membresia.class",
+      "sha256": "9d22af07815686f583eed58993b83e90ece21feaa2345f647fc89d7e599dae0f"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/models/Usuario$Rol.class",
+      "sha256": "b674ef24853f344c513ff0ba6a3450d88a39486ee94ccf67dfd5b6e115fb1530"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/config/WebSecurityConfig.class",
+      "sha256": "5ab12b07cac38d1e961395e047d8a524ad3eaaf48b7b96e56e78f8d5c6c44434"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/config/DemoDataConfig.class",
+      "sha256": "c925df4c5e9ff486f02e6dc28cc63c91ea333292de3439fd396d76d1ab1a2b72"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/repositories/RutinaRepository.class",
+      "sha256": "4f9623b1c049ce52e35a7a040a4a27fc48ef2b45fdab81b027806a68e04cba56"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/repositories/MembresiaRepository.class",
+      "sha256": "e341dd6f9da0cf231ab1450cd1f955b0c78abdc812df5c5713d5b53380dcff8a"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/repositories/ProductoRepository.class",
+      "sha256": "5288e327a1397f0234307b7c746fb1e956bde04a5d8f6d28f454559d58430476"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/repositories/UsuarioRepository.class",
+      "sha256": "465496d277b77149e191796dad981ffdc494d5a35c999a0bf2e5dfd4694c64db"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/services/MembresiaService.class",
+      "sha256": "890237ccce49576986cc98283733c7f6ed87672e71fbad4cd6e38e98a0233133"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/services/RutinaService.class",
+      "sha256": "4eb007dce80050dc43825fe77b3781e0f46139371b6fc692948853dd501281a5"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/services/ProductoService.class",
+      "sha256": "4425b470a5f538f92360a2d5cd49a849b10016259c9fe592f534a00cbb942617"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/services/UsuarioService.class",
+      "sha256": "24793a3a81cba2a4fc8884f75ccd1c51fd9ec1f9a86800fc35ec3b53b7006a34"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/dto/AuthRequest.class",
+      "sha256": "8785e4eb3cb0da73d0048ef13761f536bda81f74c8acf3c44acc4aa7afefe4d7"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/dto/LoginResponse.class",
+      "sha256": "01e40a75bbe7d284ef956e8d3332c7c67360d236c57cb220504f45a8966f5d18"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/dto/LoginRequest.class",
+      "sha256": "f3eecba45bcc6719e146bcddbe4461eed174def11dd07a585b91011233307df0"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/security/JwtService.class",
+      "sha256": "35f701bc9dc3b44073d8d33215caa922c29413e64ba441990177b24bb1cc4d3d"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/security/JwtFilter.class",
+      "sha256": "f52edda2563fa60552c9888ff287b494e383ed9a34dff6257d347167565010e4"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/security/SecurityErrorHandler.class",
+      "sha256": "bcfee67f0d1dbe1ad5765079bbbc99d4af6e60a0532c8228315f37a56db02ccf"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/security/MyUserDetailsService.class",
+      "sha256": "6abe27040ee99a5f93c7e4f1a0a220caddb6257ec8950ed66032bf2983775154"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/security/JwtUtil.class",
+      "sha256": "5a39aa9dbbecb396eb477b91f9b8501d9dd71584ce8f759c8a3880664407d83b"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/controllers/auth/AuthController.class",
+      "sha256": "b0549abc43e28b1f130140b7149a5d7d5e69068d004d34c3fd45d5ee746f4366"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/controllers/api/RutinaApiController.class",
+      "sha256": "647594c632a4fa50871802935bf26ac904207f08b1da6e919f233b363a54a415"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/controllers/api/AuthController.class",
+      "sha256": "b85190ef09f9f404f1e35c7b1994616432cebaed851f6141e2e5c8adf10f11a6"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/controllers/api/MembresiaApiController.class",
+      "sha256": "e4ebca3371d2998a39feab8a913dda3c02e2e9d19bd2c31fc567f0a263a37f1a"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/controllers/api/UsuarioApiController.class",
+      "sha256": "6e6d8c6ec6521365fdde416ccac050832ce04b66ed1bd7b0e5072f678009f9a5"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/controllers/api/ProductoApiController.class",
+      "sha256": "3de9d2312fa856768d58a66159e0dabc2229d64ec2be91b070574c0a33bcbf5c"
+    },
+    {
+      "path": "gym-tobyfit-vs/gym-tobyfit/target/classes/com/gym/gym_tobifit/controllers/api/AuthExceptionHandler.class",
+      "sha256": "7df0e5bac42c84f69e441457b6e5fe54fe387f977c2b865970bd0d5cf6d791c4"
+    }
+  ],
+  "original_business_scripts": "equal text after normalizing line endings",
+  "dom_checks": [
+    {
+      "page": "productos",
+      "initialLogin": true,
+      "invalidLogin": true,
+      "validLogin": true,
+      "cards": true,
+      "search": true,
+      "emptyState": true,
+      "expiredToken": true,
+      "logout": true,
+      "network": "SIMULATED",
+      "apiScriptsUnchanged": true
+    },
+    {
+      "page": "membresias",
+      "initialLogin": true,
+      "invalidLogin": true,
+      "validLogin": true,
+      "cards": true,
+      "search": false,
+      "emptyState": true,
+      "expiredToken": true,
+      "logout": true,
+      "network": "SIMULATED",
+      "apiScriptsUnchanged": true
+    },
+    {
+      "page": "rutinas",
+      "initialLogin": true,
+      "invalidLogin": true,
+      "validLogin": true,
+      "cards": true,
+      "search": false,
+      "emptyState": true,
+      "expiredToken": true,
+      "logout": true,
+      "network": "SIMULATED",
+      "apiScriptsUnchanged": true
+    }
+  ],
+  "maven_new_run": "BLOCKED: Spring Boot parent POM cannot resolve Maven Central; available Java is 17, project requires 21",
+  "mysql_new_run": "NOT EXECUTED: no configured MySQL in editing environment",
+  "browser_visual_review": "NOT COMPLETED: local browser unavailable; remote browser cannot access work server; data URL preview prohibited",
+  "github_remote": "NOT VERIFIED / no push; local Git original bytes preserved",
+  "supplied_surefire": [
+    {
+      "name": "com.gym.gym_tobifit.JwtSecurityIntegrationTest",
+      "tests": "26",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.gym.gym_tobifit.ApiControllersTest",
+      "tests": "24",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.gym.gym_tobifit.JwtUtilTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.gym.gym_tobifit.MembresiaRutinaApiTest",
+      "tests": "20",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ]
+}

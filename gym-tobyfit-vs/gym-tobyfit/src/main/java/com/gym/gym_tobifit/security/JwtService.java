@@ -38,9 +38,10 @@ public class JwtService {
         Date expiration = new Date(now.getTime() + EXPIRATION_TIME);
 
         return Jwts.builder()
-                .setSubject(username)
-                .setIssuedAt(now)
-                .setExpiration(expiration)
+                .header().type("JWT").and()
+                .subject(username)
+                .issuedAt(now)
+                .expiration(expiration)
                 .signWith(key)
                 .compact();
     }
@@ -62,11 +63,11 @@ public class JwtService {
     }
 
     private Claims extractAllClaims(String token) {
-        return Jwts.parserBuilder()
-                .setSigningKey(key)
+        return Jwts.parser()
+                .verifyWith(key)
                 .build()
-                .parseClaimsJws(token)
-                .getBody();
+                .parseSignedClaims(token)
+                .getPayload();
     }
 
     public boolean isTokenExpired(String token) {
