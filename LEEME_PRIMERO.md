@@ -31,7 +31,7 @@ En demo existe un producto de ensayo. Membresías y rutinas comienzan vacías; e
 
 ## Para presentar con MySQL
 
-Prepara una base de desarrollo e importa `gym_tobyfit.sql` (reemplaza tablas productos y usuarios) y luego `gym-tobyfit-vs/gym-tobyfit/sql/01_usuarios_demo_jwt.sql`. Define `DB_URL`, `DB_USER`, `DB_PASSWORD` y `JWT_SECRET` siguiendo el manual. Ejecuta `.\mvnw.cmd clean spring-boot:run` sin perfil demo.
+Prepara una base de desarrollo e importa `gym-tobyfit-vs/gym-tobyfit/sql/gym_tobyfit.sql` (que ya incluye las tablas y los usuarios de demostración unificados). Define `DB_URL`, `DB_USER`, `DB_PASSWORD` y `JWT_SECRET` siguiendo el manual. Ejecuta `.\mvnw.cmd clean spring-boot:run` sin perfil demo.
 
 ## Qué se cambió
 
