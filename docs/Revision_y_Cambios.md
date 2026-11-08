@@ -6,7 +6,7 @@ El proyecto cuenta con el backend Spring Boot (Java 21) completamente operativo 
 
 ### Documentación oficial:
 * El documento principal para entrega académica es **`docs/Manual_Completo_TobyFit.docx`** (y su exportación en PDF).
-* La guía de compilación y ejecución se encuentra en **`COMO_COMPILAR.md`** y registrada como Skill en **`.agents/skills/compilar-tobyfit/SKILL.md`**.
+* La guía de compilación y ejecución se encuentra registrada como Skill en **`.agents/skills/compilar-tobyfit/SKILL.md`**.
 
 ---
 
