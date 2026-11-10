@@ -1,22 +1,22 @@
-name: Crear Nueva Versión / Release
+name: Release
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Número de versión (ejemplo: v2.0.0, v1.1.0)'
+        description: 'Versión (ejemplo: v2.0.0, v1.1.0)'
         required: true
         default: 'v2.0.0'
       titulo:
-        description: 'Título de la versión'
+        description: 'Título del release'
         required: true
-        default: 'v2.0.0 — Integración con Angular'
+        default: 'Release'
       descripcion:
-        description: 'Notas o descripción de los cambios'
+        description: 'Descripción de los cambios'
         required: false
-        default: 'Actualización con nuevas funcionalidades y conexión con frontend Angular.'
+        default: 'Actualización y mejoras del proyecto Gym TobyFit.'
       es_latest:
-        description: '¿Marcar como la versión más reciente (Latest)?'
+        description: '¿Marcar como última versión (Latest)?'
         type: boolean
         default: true
 
@@ -25,7 +25,7 @@ permissions:
 
 jobs:
   release:
-    name: Validar y Publicar Release
+    name: Publicar Release
     runs-on: ubuntu-latest
 
     defaults:
