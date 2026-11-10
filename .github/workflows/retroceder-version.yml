@@ -1,0 +1,53 @@
+name: Rollback de Versión
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Versión de destino para restaurar (ejemplo: v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+      motivo:
+        description: 'Nota descriptiva de la restauración'
+        required: false
+        default: 'Restablecimiento a versión previa estable'
+
+permissions:
+  contents: write
+
+jobs:
+  rollback:
+    name: Restauración a versión previa
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descarga del repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Configuración de credenciales de Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Restauración de archivos a la versión indicada
+        env:
+          VERSION: ${{ github.event.inputs.version }}
+          MOTIVO: ${{ github.event.inputs.motivo }}
+        run: |
+          echo "Comprobando existencia de la versión $VERSION..."
+          git rev-parse "$VERSION" || (echo "La versión $VERSION no se encuentra en el repositorio." && exit 1)
+          
+          echo "Aplicando cambios correspondientes a la versión $VERSION..."
+          git checkout "$VERSION" -- .
+          
+          if git diff --staged --quiet && git diff --quiet; then
+            echo "El estado actual ya coincide con la versión $VERSION."
+          else
+            git add -A
+            git commit -m "Restauración a versión $VERSION: $MOTIVO"
+            git push origin main
+            echo "Rama main actualizada correctamente a la versión $VERSION."
+          fi
