@@ -1,0 +1,266 @@
+﻿<div class="app-layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">T</div>
+      <div>
+        <h2>TOBYFIT</h2>
+        <span>GYM MANAGEMENT</span>
+      </div>
+    </div>
+
+    <div class="menu-label">MENÚ PRINCIPAL</div>
+
+    <nav class="navigation">
+      <button class="nav-item" (click)="mostrar('inicio')">▦ Panel principal</button>
+      <button class="nav-item" (click)="mostrar('usuarios')">♙ Usuarios</button>
+      <button class="nav-item" (click)="mostrar('productos')">▣ Productos</button>
+      <button class="nav-item" (click)="mostrar('membresias')">◇ Membresías</button>
+      <button class="nav-item" (click)="mostrar('rutinas')">▤ Rutinas</button>
+      <button class="nav-item" (click)="mostrar('login')">↪ Iniciar sesión</button>
+      <button class="nav-item" (click)="mostrar('registro')">＋ Registrarse</button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <span class="status-dot"></span>
+      Sistema de gestión
+      <small>Versión académica 1.0</small>
+      <button class="logout" (click)="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <span class="breadcrumb">GYM TOBYFIT / {{ vista | uppercase }}</span>
+        <h1>{{ vista === 'inicio' ? 'Panel principal' : vista | titlecase }}</h1>
+      </div>
+      <div class="user-profile">
+        <div class="avatar">T</div>
+        <div>
+          <strong>TOBYFIT</strong>
+          <small>Panel de gestión</small>
+        </div>
+      </div>
+    </header>
+
+    <div class="alert success" *ngIf="mensaje">{{ mensaje }}</div>
+    <div class="alert danger" *ngIf="error">{{ error }}</div>
+
+    <!-- INICIO -->
+    <section *ngIf="vista === 'inicio'">
+      <section class="welcome">
+        <div>
+          <span class="welcome-tag">BIENVENIDO A TOBYFIT</span>
+          <h2>Gestiona tu gimnasio<br>desde un solo lugar.</h2>
+          <p>Administra usuarios, productos, membresías y rutinas de manera sencilla.</p>
+        </div>
+        <div class="welcome-symbol">TF</div>
+      </section>
+
+      <section class="section-heading">
+        <div>
+          <h2>Módulos del sistema</h2>
+          <p>Selecciona un módulo para gestionar la información.</p>
+        </div>
+        <span class="system-status">● Interfaz disponible</span>
+      </section>
+
+      <section class="module-grid">
+        <article class="module-card" (click)="mostrar('usuarios')">
+          <div class="module-icon purple">♙</div>
+          <span class="module-label">GESTIÓN</span>
+          <h3>Usuarios</h3>
+          <p>Consulta y administra las cuentas de los usuarios.</p>
+          <a>Ir al módulo →</a>
+        </article>
+
+        <article class="module-card" (click)="mostrar('productos')">
+          <div class="module-icon orange">▣</div>
+          <span class="module-label">INVENTARIO</span>
+          <h3>Productos</h3>
+          <p>Registra, consulta y actualiza los productos.</p>
+          <a>Ir al módulo →</a>
+        </article>
+
+        <article class="module-card" (click)="mostrar('membresias')">
+          <div class="module-icon green">◇</div>
+          <span class="module-label">SERVICIOS</span>
+          <h3>Membresías</h3>
+          <p>Administra planes, precios y duración.</p>
+          <a>Ir al módulo →</a>
+        </article>
+
+        <article class="module-card" (click)="mostrar('rutinas')">
+          <div class="module-icon blue">▤</div>
+          <span class="module-label">ENTRENAMIENTO</span>
+          <h3>Rutinas</h3>
+          <p>Registra y consulta rutinas de entrenamiento.</p>
+          <a>Ir al módulo →</a>
+        </article>
+      </section>
+    </section>
+
+    <!-- LOGIN: FORMULARIO 1 -->
+    <section class="management" *ngIf="vista === 'login'">
+      <h2>Iniciar sesión</h2>
+      <form (ngSubmit)="iniciarSesion()">
+        <label>Correo electrónico</label>
+        <input type="email" name="loginCorreo" [(ngModel)]="loginForm.correo" required>
+        <label>Contraseña</label>
+        <input type="password" name="loginPassword" [(ngModel)]="loginForm.contrasena" required>
+        <button class="primary-button">Ingresar</button>
+      </form>
+    </section>
+
+    <!-- REGISTRO: FORMULARIO 2 -->
+    <section class="management" *ngIf="vista === 'registro'">
+      <h2>Registro de usuario</h2>
+      <form (ngSubmit)="registrarUsuario()">
+        <div class="form-grid">
+          <div><label>Nombre</label><input name="regNombre" [(ngModel)]="registroForm.nombre" required></div>
+          <div><label>Apellido</label><input name="regApellido" [(ngModel)]="registroForm.apellido" required></div>
+          <div><label>Teléfono</label><input name="regTelefono" [(ngModel)]="registroForm.telefono" required></div>
+          <div><label>Edad</label><input type="number" name="regEdad" [(ngModel)]="registroForm.edad" required min="1"></div>
+          <div><label>Correo</label><input type="email" name="regCorreo" [(ngModel)]="registroForm.correo" required></div>
+          <div><label>Contraseña</label><input type="password" name="regPassword" [(ngModel)]="registroForm.contrasena" required></div>
+        </div>
+        <button class="primary-button">Registrar usuario</button>
+      </form>
+    </section>
+
+    <!-- USUARIOS: FORMULARIO 3 -->
+    <section class="management" *ngIf="vista === 'usuarios'">
+      <h2>Administración de usuarios</h2>
+      <form (ngSubmit)="actualizarUsuario()">
+        <div class="form-grid">
+          <div><label>ID</label><input type="number" name="userId" [(ngModel)]="usuarioForm.id" readonly></div>
+          <div><label>Nombre</label><input name="userNombre" [(ngModel)]="usuarioForm.nombre" required></div>
+          <div><label>Apellido</label><input name="userApellido" [(ngModel)]="usuarioForm.apellido" required></div>
+          <div><label>Teléfono</label><input name="userTelefono" [(ngModel)]="usuarioForm.telefono" required></div>
+          <div><label>Edad</label><input type="number" name="userEdad" [(ngModel)]="usuarioForm.edad" required></div>
+          <div><label>Correo</label><input type="email" name="userCorreo" [(ngModel)]="usuarioForm.correo" required></div>
+          <div>
+            <label>Rol</label>
+            <select name="userRol" [(ngModel)]="usuarioForm.rol">
+              <option value="USUARIO">USUARIO</option>
+              <option value="ADMIN">ADMIN</option>
+            </select>
+          </div>
+        </div>
+        <button class="primary-button">Actualizar usuario seleccionado</button>
+      </form>
+
+      <h3>Usuarios registrados</h3>
+      <button class="secondary-button" (click)="cargarUsuarios()">Actualizar lista</button>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Nombre</th><th>Correo</th><th>Rol</th><th>Acción</th></tr></thead>
+          <tbody>
+            <tr *ngFor="let u of usuarios">
+              <td>{{u.id}}</td><td>{{u.nombre}} {{u.apellido}}</td>
+              <td>{{u.correo}}</td><td>{{u.rol}}</td>
+              <td><button class="edit-button" (click)="editarUsuario(u)">Editar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MEMBRESÍAS: FORMULARIO 4 -->
+    <section class="management" *ngIf="vista === 'membresias'">
+      <h2>Gestión de membresías</h2>
+      <form (ngSubmit)="guardarMembresia()">
+        <div class="form-grid">
+          <div><label>ID (vacío para crear)</label><input type="number" name="memId" [(ngModel)]="membresiaForm.id" readonly></div>
+          <div><label>Nombre</label><input name="memNombre" [(ngModel)]="membresiaForm.nombre" required></div>
+          <div><label>Duración (días)</label><input type="number" name="memDuracion" [(ngModel)]="membresiaForm.duracionDias" required min="1"></div>
+          <div><label>Precio</label><input type="number" name="memPrecio" [(ngModel)]="membresiaForm.precio" required min="0" step="0.01"></div>
+          <div class="full"><label>Descripción</label><textarea name="memDescripcion" [(ngModel)]="membresiaForm.descripcion"></textarea></div>
+          <div><label>Estado</label><select name="memActiva" [(ngModel)]="membresiaForm.activa"><option [ngValue]="true">Activa</option><option [ngValue]="false">Inactiva</option></select></div>
+        </div>
+        <button class="primary-button">Guardar membresía</button>
+        <button type="button" class="secondary-button" (click)="nuevaMembresia()">Limpiar</button>
+      </form>
+
+      <h3>Membresías registradas</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Nombre</th><th>Días</th><th>Precio</th><th>Estado</th><th>Acción</th></tr></thead>
+          <tbody>
+            <tr *ngFor="let m of membresias">
+              <td>{{m.id}}</td><td>{{m.nombre}}</td><td>{{m.duracionDias}}</td>
+              <td>{{m.precio}}</td><td>{{m.activa ? 'Activa' : 'Inactiva'}}</td>
+              <td><button class="edit-button" (click)="editarMembresia(m)">Editar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS: FORMULARIO 5 -->
+    <section class="management" *ngIf="vista === 'productos'">
+      <h2>Gestión de productos</h2>
+      <form (ngSubmit)="guardarProducto()">
+        <div class="form-grid">
+          <div><label>Nombre</label><input name="prodNombre" [(ngModel)]="productoForm.nombre" required></div>
+          <div><label>Categoría</label><input name="prodCategoria" [(ngModel)]="productoForm.categoria" required></div>
+          <div><label>Género</label><select name="prodGenero" [(ngModel)]="productoForm.genero" required><option value="">Seleccionar</option><option value="HOMBRE">HOMBRE</option><option value="MUJER">MUJER</option><option value="UNISEX">UNISEX</option></select></div>
+          <div><label>Precio</label><input type="number" name="prodPrecio" [(ngModel)]="productoForm.precio" required min="0" step="0.01"></div>
+          <div class="full"><label>Imagen principal (ruta o URL)</label><input name="prodImagen" [(ngModel)]="productoForm.imagenPrincipal" required></div>
+          <div class="full"><label>Imágenes adicionales</label><textarea name="prodImagenes" [(ngModel)]="productoForm.imagenes"></textarea></div>
+          <div class="full"><label>Modelos</label><textarea name="prodModelos" [(ngModel)]="productoForm.modelos"></textarea></div>
+          <div><label>Estado</label><select name="prodActivo" [(ngModel)]="productoForm.activo"><option [ngValue]="true">Activo</option><option [ngValue]="false">Inactivo</option></select></div>
+        </div>
+        <button class="primary-button">Guardar producto</button>
+        <button type="button" class="secondary-button" (click)="nuevoProducto()">Limpiar</button>
+      </form>
+
+      <h3>Productos registrados</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Nombre</th><th>Categoría</th><th>Género</th><th>Precio</th><th>Acción</th></tr></thead>
+          <tbody>
+            <tr *ngFor="let p of productos">
+              <td>{{p.id}}</td><td>{{p.nombre}}</td><td>{{p.categoria}}</td>
+              <td>{{p.genero}}</td><td>{{p.precio}}</td>
+              <td><button class="edit-button" (click)="editarProducto(p)">Editar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- RUTINAS: FORMULARIO 6 -->
+    <section class="management" *ngIf="vista === 'rutinas'">
+      <h2>Gestión de rutinas</h2>
+      <form (ngSubmit)="guardarRutina()">
+        <div class="form-grid">
+          <div><label>Nombre</label><input name="rutNombre" [(ngModel)]="rutinaForm.nombre" required></div>
+          <div><label>Objetivo</label><input name="rutObjetivo" [(ngModel)]="rutinaForm.objetivo" required></div>
+          <div><label>Nivel</label><select name="rutNivel" [(ngModel)]="rutinaForm.nivel"><option>Principiante</option><option>Intermedio</option><option>Avanzado</option></select></div>
+          <div><label>Duración (semanas)</label><input type="number" name="rutDuracion" [(ngModel)]="rutinaForm.duracionSemanas" required min="1"></div>
+          <div class="full"><label>Descripción</label><textarea name="rutDescripcion" [(ngModel)]="rutinaForm.descripcion"></textarea></div>
+        </div>
+        <button class="primary-button">Registrar rutina</button>
+      </form>
+
+      <h3>Rutinas registradas</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Nombre</th><th>Objetivo</th><th>Nivel</th><th>Semanas</th></tr></thead>
+          <tbody>
+            <tr *ngFor="let r of rutinas">
+              <td>{{r.id}}</td><td>{{r.nombre}}</td><td>{{r.objetivo}}</td>
+              <td>{{r.nivel}}</td><td>{{r.duracionSemanas}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 GYM TOBYFIT</span>
+      <span>Proyecto académico - Desarrollo Web Integrado</span>
+    </footer>
+  </main>
+</div>

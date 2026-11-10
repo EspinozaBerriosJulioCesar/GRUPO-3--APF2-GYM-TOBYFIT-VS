@@ -44,6 +44,7 @@ public class WebSecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/auth/registro").permitAll()
                         .requestMatchers(HttpMethod.GET,
                                 "/",
                                 "/index.html",
@@ -87,7 +88,7 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    // JwtFilter ya está en SecurityFilterChain; evita registrarlo dos veces en el servidor.
+    // JwtFilter ya estÃ¡ en SecurityFilterChain; evita registrarlo dos veces en el servidor.
     @Bean
     public FilterRegistrationBean<JwtFilter> jwtFilterRegistration(JwtFilter filter) {
         FilterRegistrationBean<JwtFilter> registration = new FilterRegistrationBean<>(filter);

@@ -1,35 +1,29 @@
-# Maven
-target/
+﻿# Java / Maven
+**/target/
+**/build/
 *.class
+*.jar
+*.war
 
-# IDE
-.vscode/
-.idea/
-*.iml
-
-# Eclipse
-.classpath
-.project
-.settings/
+# Angular / Node
+**/node_modules/
+**/dist/
+**/.angular/
 
 # Logs
 *.log
+error-*.txt
 
-# Variables de entorno
+# Variables y secretos
 .env
+.env.*
+!.env.example
 
-# Configuración local
-application-local.properties
-application-local.yml
+# IDE
+.idea/
+*.iml
 
-
-
-
-
-
-
-
-
-
-
-
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini

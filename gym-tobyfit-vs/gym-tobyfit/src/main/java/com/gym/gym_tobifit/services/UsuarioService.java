@@ -6,6 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.gym.gym_tobifit.models.Usuario;
+import com.gym.gym_tobifit.dto.RegistroRequest;
 import com.gym.gym_tobifit.repositories.UsuarioRepository;
 
 @Service
@@ -25,6 +26,37 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
+    public Usuario registrarUsuario(RegistroRequest request) {
+
+        if (request == null ||
+            request.getNombre() == null || request.getNombre().isBlank() ||
+            request.getApellido() == null || request.getApellido().isBlank() ||
+            request.getTelefono() == null || request.getTelefono().isBlank() ||
+            request.getEdad() == null || request.getEdad() < 1 ||
+            request.getCorreo() == null || request.getCorreo().isBlank() ||
+            request.getContrasena() == null || request.getContrasena().length() < 8) {
+            throw new IllegalArgumentException("Datos de registro inválidos. Verifique los campos y use una contraseña de al menos 8 caracteres.");
+        }
+
+        String correo = request.getCorreo().trim();
+
+        if (usuarioRepository.findByCorreoIgnoreCase(correo).isPresent()) {
+            throw new IllegalArgumentException("El correo electrónico ya está registrado.");
+        }
+
+        Usuario usuario = new Usuario();
+        usuario.setNombre(request.getNombre().trim());
+        usuario.setApellido(request.getApellido().trim());
+        usuario.setTelefono(request.getTelefono().trim());
+        usuario.setEdad(request.getEdad());
+        usuario.setCorreo(correo);
+        usuario.setContrasena(passwordEncoder.encode(request.getContrasena()));
+
+        // El registro público siempre asigna el rol USUARIO.
+        usuario.setRol(Usuario.Rol.USUARIO);
+
+        return usuarioRepository.save(usuario);
+    }
     public Usuario actualizarUsuario(Usuario usuario) {
         Usuario actual = usuarioRepository.findById(usuario.getId())
                 .orElseThrow(() ->
