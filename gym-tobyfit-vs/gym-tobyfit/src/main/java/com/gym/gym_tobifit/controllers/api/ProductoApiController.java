@@ -23,17 +23,14 @@ public class ProductoApiController {
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Producto> crearProducto(@RequestBody Producto producto) { return ResponseEntity.ok(productoService.guardarProducto(producto)); }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Producto> actualizarProducto(@PathVariable Long id, @RequestBody Producto producto) {
         producto.setId(id);
         return ResponseEntity.ok(productoService.actualizarProducto(producto));
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> eliminarProducto(@PathVariable Long id) { productoService.eliminarProducto(id); return ResponseEntity.ok().build(); }
 }

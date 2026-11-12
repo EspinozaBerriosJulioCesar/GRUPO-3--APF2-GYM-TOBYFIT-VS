@@ -54,7 +54,15 @@ public class WebSecurityConfig {
                                 "/css/**",
                                 "/js/**",
                                 "/images/**",
-                                "/favicon.ico"
+                                "/favicon.ico",
+                                "/api/productos",
+                                "/api/productos/**",
+                                "/api/membresias",
+                                "/api/membresias/**",
+                                "/api/rutinas",
+                                "/api/rutinas/**",
+                                "/api/promociones",
+                                "/api/promociones/**"
                         ).permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

@@ -17,7 +17,7 @@ import com.gym.gym_tobifit.services.UsuarioService;
 
 @RestController
 @RequestMapping("/api/usuarios")
-@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasAnyRole('ADMIN', 'USUARIO')")
 public class UsuarioApiController {
     private final UsuarioService usuarioService;
     public UsuarioApiController(UsuarioService usuarioService) { this.usuarioService = usuarioService; }
