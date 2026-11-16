@@ -8,33 +8,50 @@ El proyecto expone **26 operaciones REST en 7 controladores**. Angular invoca **
 
 La documentación actual es `docs/Manual_Completo_TobyFit.docx`. El Excel de entrega es `docs/Equipo_3.xlsx`, hoja **Equipo 3**. Los documentos de etapas anteriores se conservan en `docs/historico/`.
 
-## Ejecutar la aplicación Angular
+## Ejecutar la aplicación
 
-Requisitos usados: **JDK 21**, **Node.js 24** y npm. Para compilar Java se necesita el JDK completo (`javac -version`), no solo el JRE.
+Requisitos usados: **JDK 21**, **Node.js 24** (o superior) y npm. Para compilar Java se necesita el JDK completo (`javac -version`), no solo el JRE.
 
-Terminal 1, desde la raíz del proyecto (PowerShell):
+### Terminal 1: Backend (Spring Boot)
 
+Desde la raíz del proyecto (PowerShell), elige una de las dos modalidades:
+
+#### Opción A: Modo Demo (Base de datos H2 en memoria RAM - No requiere XAMPP)
+Ideal para pruebas rápidas y ejecución de tests. Crea tablas y datos demo automáticamente en memoria.
 ```powershell
 cd gym-tobyfit-vs/gym-tobyfit
 .\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=demo"
 ```
 
-Terminal 2, desde la raíz:
+#### Opción B: Modo MySQL (XAMPP - Persistencia real)
+1. Iniciar **Apache** y **MySQL** desde el panel de XAMPP.
+2. En phpMyAdmin (`http://localhost/phpmyadmin`), crear la base de datos `gym_tobyfit` e importar `gym-tobyfit-vs/gym-tobyfit/sql/gym_tobyfit.sql`.
+3. Ejecutar el backend:
+```powershell
+cd gym-tobyfit-vs/gym-tobyfit
+.\mvnw.cmd spring-boot:run
+```
+
+---
+
+### Terminal 2: Frontend (Angular)
+
+Desde la raíz del proyecto en una segunda ventana de PowerShell:
 
 ```powershell
 cd frontend
-npm ci
+npm install
 npm start
 ```
 
-Abrir **http://localhost:4200**. La API está en **http://localhost:8081/api**. Las páginas estáticas antiguas que sirve el backend en 8081 son otra interfaz y no se deben presentar como los formularios Angular de esta rúbrica.
+Abrir **http://localhost:4200** en el navegador. La API REST responde en **http://localhost:8081/api**.
 
-| Rol demo | Correo | Contraseña demo |
-|---|---|---|
-| ADMIN | admin.jwt@tobyfit.local | DemoAdmin2026! |
-| USUARIO | usuario.jwt@tobyfit.local | DemoUsuario2026! |
+| Rol demo | Correo | Contraseña demo | Permisos |
+|---|---|---|---|
+| ADMIN | admin.jwt@tobyfit.local | DemoAdmin2026! | CRUD completo en membresías, productos, promociones, rutinas y gestión de usuarios. |
+| USUARIO | usuario.jwt@tobyfit.local | DemoUsuario2026! | Consulta de catálogos y rutinas públicas. |
 
-Estas cuentas y la clave JWT demo son exclusivamente de ensayo. H2 se reinicia al cerrar el backend; no conserva los datos entre ejecuciones.
+En el modo demo H2 los datos se reinician al cerrar el backend. En el modo MySQL los datos persisten en la base de datos.
 
 ## Permisos
 
@@ -79,4 +96,4 @@ No se pudo ejecutar esa sesión de navegador en el entorno de revisión. El aisl
 
 ## MySQL
 
-La configuración principal usa `DB_URL`, `DB_USER`, `DB_PASSWORD` y `JWT_SECRET`. El SQL incluido contiene las cinco tablas del dominio. Antes de usarlo, crear una base de desarrollo `gym_tobyfit`, importar `gym-tobyfit-vs/gym-tobyfit/sql/gym_tobyfit.sql` y definir las variables. `JWT_SECRET` requiere al menos 32 bytes UTF-8. Arrancar sin el perfil demo para usar MySQL. La importación y persistencia MySQL quedan pendientes de validación local.
+La configuración principal se conecta a MySQL en `localhost:3306/gym_tobyfit`. Para facilitar la ejecución local con XAMPP, `application.properties` ya incluye valores por defecto para `DB_URL`, `DB_USER` (`root`), `DB_PASSWORD` (vacío) y `JWT_SECRET`. El archivo `gym-tobyfit-vs/gym-tobyfit/sql/gym_tobyfit.sql` contiene las cinco tablas del dominio (`membresias`, `productos`, `promociones`, `rutinas` y `usuarios`). Basta con arrancar sin el perfil demo (`.\mvnw.cmd spring-boot:run`) para utilizar MySQL.
