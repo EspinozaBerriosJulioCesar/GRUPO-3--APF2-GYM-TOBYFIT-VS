@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Map;
 
-@RestControllerAdvice(assignableTypes = AuthController.class)
+@RestControllerAdvice(assignableTypes = {AuthController.class, com.gym.gym_tobifit.controllers.auth.AuthController.class})
 public class AuthExceptionHandler {
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity<?> invalidCredentials(HttpServletRequest request) {
@@ -21,6 +21,6 @@ public class AuthExceptionHandler {
     @ExceptionHandler({MethodArgumentNotValidException.class, HttpMessageNotReadableException.class})
     public ResponseEntity<?> invalidRequest(HttpServletRequest request) {
         return ResponseEntity.badRequest().body(Map.of("status", 400, "error", "Solicitud inválida",
-                "message", "Envía username y password válidos en un objeto JSON", "path", request.getRequestURI()));
+                "message", "Envía las credenciales válidas en un objeto JSON", "path", request.getRequestURI()));
     }
 }

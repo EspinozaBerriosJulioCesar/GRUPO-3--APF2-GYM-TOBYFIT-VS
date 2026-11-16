@@ -65,7 +65,20 @@
           "defaultConfiguration": "development"
         },
         "test": {
-          "builder": "@angular/build:unit-test"
+          "builder": "@angular/build:unit-test",
+          "configurations": {
+            "unit": {
+              "exclude": [
+                "**/*.live.spec.ts"
+              ]
+            },
+            "live": {
+              "include": [
+                "**/*.live.spec.ts"
+              ]
+            }
+          },
+          "defaultConfiguration": "unit"
         }
       }
     }

@@ -1,0 +1,58 @@
+{
+  "fecha": "2026-11-14T14:32:37.679017-05:00",
+  "backend": [
+    {
+      "name": "com.gym.gym_tobifit.ApiControllersTest",
+      "tests": "24",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "12.474"
+    },
+    {
+      "name": "com.gym.gym_tobifit.JwtSecurityIntegrationTest",
+      "tests": "26",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "7.1"
+    },
+    {
+      "name": "com.gym.gym_tobifit.JwtUtilTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.296"
+    },
+    {
+      "name": "com.gym.gym_tobifit.MembresiaRutinaApiTest",
+      "tests": "20",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.242"
+    },
+    {
+      "name": "com.gym.gym_tobifit.RubricaIntegrationTest",
+      "tests": "37",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "7.341"
+    }
+  ],
+  "backend_total": 115,
+  "angular_unitarias": 41,
+  "angular_integradas": 7,
+  "total_pruebas": 163,
+  "peticiones_http_exitosas": 66,
+  "operaciones_angular": 21,
+  "operaciones_backend": 26,
+  "controladores_backend": 7,
+  "formularios": 7,
+  "base_datos_probada": "H2",
+  "mysql_probado": false,
+  "navegador_con_servidor_probado": false,
+  "imagenes": "Reproducciones de registros reales; no capturas de una sesión de navegador."
+}
