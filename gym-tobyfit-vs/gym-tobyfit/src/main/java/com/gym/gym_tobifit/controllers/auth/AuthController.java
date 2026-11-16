@@ -37,7 +37,7 @@ public class AuthController {
     public ResponseEntity<LoginResponse> login(
             @RequestBody LoginRequest request) {
 
-        authenticationManager.authenticate(
+        var authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getCorreo(),
                         request.getContrasena()
@@ -48,7 +48,7 @@ public class AuthController {
                 jwtUtil.generateToken(request.getCorreo());
 
         return ResponseEntity.ok(
-                new LoginResponse(token)
+                new LoginResponse(token, authentication.getAuthorities().iterator().next().getAuthority().replace("ROLE_", ""))
         );
     }
 

@@ -99,9 +99,8 @@ class JwtSecurityIntegrationTest {
                 .andExpect(status().isBadRequest());
     }
 
-    @Test void productosSinTokenRetorna401() throws Exception {
-        mockMvc.perform(get("/api/productos")).andExpect(status().isUnauthorized())
-                .andExpect(header().string("WWW-Authenticate", "Bearer"));
+    @Test void catalogoPublicoSinTokenRetorna200() throws Exception {
+        mockMvc.perform(get("/api/productos")).andExpect(status().isOk());
     }
 
     @Test void usuariosSinTokenRetorna401() throws Exception {
@@ -185,7 +184,7 @@ class JwtSecurityIntegrationTest {
         var result = mockMvc.perform(get("/api/productos").header("Authorization", "Bearer " + login(ADMIN)))
                 .andExpect(status().isOk()).andReturn();
         assertThat(result.getRequest().getSession(false)).isNull();
-        mockMvc.perform(get("/api/productos")).andExpect(status().isUnauthorized());
+        mockMvc.perform(get("/api/usuarios")).andExpect(status().isUnauthorized());
     }
 
     @Test void usuarioSinRolNoPuedeAutenticarse() throws Exception {

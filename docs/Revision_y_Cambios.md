@@ -1,49 +1,33 @@
-# Revisión y Cambios de Gym TobyFit
+# Revisión final de TobyFit
 
-## 1. Alcance y Estado Actual
+## Resultado
 
-El proyecto cuenta con el backend Spring Boot (Java 21) completamente operativo y preparado para la integración con **Angular** de cara al **Avance de Proyecto Final 3 (APF3)**.
+26 rutas REST, 7 controladores (5 de negocio y 2 de autenticación), 21 operaciones consumidas por Angular y 7 formularios. Productos y Membresías aportan por sí solos 8 operaciones invocadas desde Angular.
 
-### Documentación oficial:
-* El documento principal para entrega académica es **`docs/Manual_Completo_TobyFit.docx`** (y su exportación en PDF).
-* La guía de compilación y ejecución se encuentra registrada como Skill en **`.agents/skills/compilar-tobyfit/SKILL.md`**.
+## Problemas encontrados en el ZIP original
 
----
+- UsuarioApiController autorizaba a USUARIO a gestionar cuentas, incluso cambiar roles.
+- Las escrituras de productos, membresías, rutinas y promociones solo exigían autenticación.
+- El frontend siempre intentaba cargar usuarios tras iniciar sesión y mostraba las acciones de administración a todos.
+- La prueba Angular aún esperaba el título de la plantilla. Las respuestas HTTP asíncronas no notificaban correctamente los cambios de vista.
+- Las pruebas JWT y documentos conservaban supuestos de una etapa anterior: catálogo protegido, 19 operaciones, formularios pendientes y puerto 8080.
 
-## 2. Cambios Recientes Implementados
+## Correcciones
 
-1. **Habilitación de CORS para Angular (APF3)**:
-   * Se configuró `WebSecurityConfig.java` para permitir peticiones HTTP (`GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`, `PATCH`) desde `http://localhost:4200`.
-   * Se autorizaron las cabeceras `Authorization` y `Content-Type`, y las peticiones preflight `OPTIONS` sin requerir token previo.
+- Acciones administrativas restringidas a ADMIN en la cadena de seguridad; UsuarioApiController también exige ADMIN.
+- Login devuelve el rol, que Angular usa para presentar menús, formularios y acciones. El backend comprueba el rol real en la base de datos.
+- Logout limpia permisos y datos de usuarios. Las cargas de usuarios solo se hacen con ADMIN.
+- NgForm bloquea envíos inválidos, se valida el correo y longitud de contraseña de registro, se comprueban fechas de promociones y se asocian etiquetas a controles.
+- ChangeDetectorRef.markForCheck() actualiza la vista al recibir respuestas HTTP.
+- El manejo de errores 401 se aplica también al contrato /api/auth/login.
+- Se corrigieron expectativas de lectura pública y se agregaron pruebas de permisos, persistencia, registro, CORS y consumo Angular.
 
-2. **Unificación de Base de Datos**:
-   * Se unificaron los scripts SQL en un solo archivo: `gym-tobyfit-vs/gym-tobyfit/sql/gym_tobyfit.sql` (que incluye estructura y usuarios de demostración).
-   * Para pruebas sin MySQL/XAMPP, se mantiene el perfil `demo` con base de datos H2 en memoria RAM.
+## Verificación
 
-3. **Limpieza de Archivos**:
-   * Se eliminaron copias de respaldo obsoletas (`respaldo-seguridad-20261010-200857`) y logs históricos.
-   * Se eliminó `LEEME_PRIMERO.md` de la raíz para centralizar toda la documentación en `docs/`.
+Original: 78 pruebas backend, con 4 fallos de aserción y 1 error; Angular: 1 aprobada y 1 fallida.
 
-4. **Sincronización de Autenticación en Frontend Web**:
-   * Las páginas web (`productos.html`, `membresias.html`, `rutinas.html`) leen y persisten de forma sincronizada las claves `token` y `tobyfit_token` en `localStorage`, compartiendo la sesión activa.
+Final: backend 115/115, Angular unitario 41/41, integración Angular con servidor real 7/7. El recorrido integrado registró 66 respuestas exitosas para 21 operaciones distintas. `npm run build` aprobó con aviso de tamaño CSS (6,46 kB frente a 4 kB de aviso; límite de error 8 kB).
 
----
+Base usada: H2. MySQL y una sesión de navegador conectada al servidor no se verificaron. Las evidencias PNG son reproducciones de los registros; las vistas HTML provienen del DOM de la prueba integrada. La política del entorno bloqueó las capturas de la aplicación en vivo.
 
-## 3. Estado de la Arquitectura Backend
-
-* **4 Modelos / Entidades JPA**: `Producto` (9 atributos), `Usuario` (8 atributos), `Membresia` (6 atributos), `Rutina` (6 atributos).
-* **19 Operaciones REST Disponibles**:
-  * 5 en `ProductoApiController` (CRUD completo)
-  * 5 en `MembresiaApiController` (CRUD completo)
-  * 5 en `RutinaApiController` (CRUD completo)
-  * 3 en `UsuarioApiController` (Gestión con rol ADMIN)
-  * 1 en `AuthController` (`/api/auth/login`)
-* **Cadena de Seguridad JWT**: `WebSecurityConfig` ➔ `JwtFilter` ➔ `JwtUtil` ➔ `MyUserDetailsService`.
-
----
-
-## 4. Requisitos para el Avance de Proyecto Final 3 (Rúbrica UTP)
-
-* **Operaciones REST (8 pts)**: Cumplido con 19 operaciones (la rúbrica exige al menos 8 operaciones en 2 controladores).
-* **Formularios Angular (8 pts)**: Tu compañero debe implementar los 6 formularios planificados (Login, Crear Producto, Editar Producto, Crear Membresía, Editar Membresía, Crear Rutina).
-* **Presentación (4 pts)**: Despliegue listo para iniciar mediante perfil demo o MySQL.
+La documentación vigente está en Manual_Completo_TobyFit.docx, README.md y Equipo_3.xlsx. Los documentos anteriores se conservan en historico/.

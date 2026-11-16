@@ -1,0 +1,359 @@
+{
+  "fecha": "2026-11-14T19:28:39.907Z",
+  "entorno": "Angular TestBed + jsdom + Spring Boot demo H2 real",
+  "peticiones": [
+    {
+      "metodo": "GET",
+      "ruta": "/api/rutinas",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/membresias",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/promociones",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "POST",
+      "ruta": "/api/auth/registro",
+      "estado": 201
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/rutinas",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/promociones",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/membresias",
+      "estado": 200
+    },
+    {
+      "metodo": "POST",
+      "ruta": "/api/auth/login",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "POST",
+      "ruta": "/api/auth/login",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/usuarios",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/membresias",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/rutinas",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/promociones",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "POST",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "PUT",
+      "ruta": "/api/productos/2",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "DELETE",
+      "ruta": "/api/productos/2",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/promociones",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/rutinas",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/membresias",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/membresias",
+      "estado": 200
+    },
+    {
+      "metodo": "POST",
+      "ruta": "/api/membresias",
+      "estado": 201
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/membresias",
+      "estado": 200
+    },
+    {
+      "metodo": "PUT",
+      "ruta": "/api/membresias/1",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/membresias",
+      "estado": 200
+    },
+    {
+      "metodo": "DELETE",
+      "ruta": "/api/membresias/1",
+      "estado": 204
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/membresias",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/rutinas",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/membresias",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/promociones",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/rutinas",
+      "estado": 200
+    },
+    {
+      "metodo": "POST",
+      "ruta": "/api/rutinas",
+      "estado": 201
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/rutinas",
+      "estado": 200
+    },
+    {
+      "metodo": "PUT",
+      "ruta": "/api/rutinas/1",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/rutinas",
+      "estado": 200
+    },
+    {
+      "metodo": "DELETE",
+      "ruta": "/api/rutinas/1",
+      "estado": 204
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/rutinas",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/rutinas",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/promociones",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/membresias",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/promociones",
+      "estado": 200
+    },
+    {
+      "metodo": "POST",
+      "ruta": "/api/promociones",
+      "estado": 201
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/promociones",
+      "estado": 200
+    },
+    {
+      "metodo": "PUT",
+      "ruta": "/api/promociones/1",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/promociones",
+      "estado": 200
+    },
+    {
+      "metodo": "DELETE",
+      "ruta": "/api/promociones/1",
+      "estado": 204
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/promociones",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/rutinas",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/productos",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/promociones",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/membresias",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/usuarios",
+      "estado": 200
+    },
+    {
+      "metodo": "PUT",
+      "ruta": "/api/usuarios/3",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/usuarios",
+      "estado": 200
+    },
+    {
+      "metodo": "DELETE",
+      "ruta": "/api/usuarios/3",
+      "estado": 200
+    },
+    {
+      "metodo": "GET",
+      "ruta": "/api/usuarios",
+      "estado": 200
+    }
+  ],
+  "operaciones": [
+    "DELETE /api/membresias/{id}",
+    "DELETE /api/productos/{id}",
+    "DELETE /api/promociones/{id}",
+    "DELETE /api/rutinas/{id}",
+    "DELETE /api/usuarios/{id}",
+    "GET /api/membresias",
+    "GET /api/productos",
+    "GET /api/promociones",
+    "GET /api/rutinas",
+    "GET /api/usuarios",
+    "POST /api/auth/login",
+    "POST /api/auth/registro",
+    "POST /api/membresias",
+    "POST /api/productos",
+    "POST /api/promociones",
+    "POST /api/rutinas",
+    "PUT /api/membresias/{id}",
+    "PUT /api/productos/{id}",
+    "PUT /api/promociones/{id}",
+    "PUT /api/rutinas/{id}",
+    "PUT /api/usuarios/{id}"
+  ]
+}

@@ -580,3 +580,5 @@ td button {
     padding: 18px;
   }
 }
+
+.primary-button:disabled { opacity: .45; cursor: not-allowed; }

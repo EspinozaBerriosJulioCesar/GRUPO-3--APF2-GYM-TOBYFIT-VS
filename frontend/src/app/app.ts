@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
 import { GymApiService } from './services/gym-api.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterOutlet],
+  imports: [CommonModule, FormsModule],
+  changeDetection: ChangeDetectionStrategy.Default,
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -58,7 +58,24 @@ export class App implements OnInit {
     precio: 0, activa: true
   };
 
-  constructor(private api: GymApiService) {}
+  constructor(private api: GymApiService, private cdr: ChangeDetectorRef) {}
+
+  get sesionActiva(): boolean {
+    const token = localStorage.getItem('token');
+    if (!token) return false;
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+      return Number(payload.exp) * 1000 > Date.now();
+    } catch { return false; }
+  }
+
+  get rol(): string {
+    return this.sesionActiva ? (localStorage.getItem('rol') || 'USUARIO') : 'INVITADO';
+  }
+
+  // Solo controla la presentación; el servidor vuelve a comprobar el rol de la BD.
+  get esAdmin(): boolean { return this.rol === 'ADMIN'; }
+
 
   ngOnInit(): void {
     this.cargarMembresias();
@@ -68,6 +85,10 @@ export class App implements OnInit {
   }
 
   mostrar(vista: string): void {
+    if (vista === 'usuarios' && !this.esAdmin) {
+      this.error = 'Solo el administrador puede gestionar usuarios.';
+      return;
+    }
     this.vista = vista;
     this.mensaje = '';
     this.error = '';
@@ -84,10 +105,12 @@ export class App implements OnInit {
     this.mensaje = '';
     accion.subscribe({
       next: () => {
+        this.cdr.markForCheck();
         this.mensaje = exito;
         if (alFinalizar) alFinalizar();
       },
       error: (e: any) => {
+        this.cdr.markForCheck();
         this.mensaje = '';
         this.error = e.error?.error || e.error?.mensaje ||
           e.error?.message || 'No se pudo completar la operación. Verifica tus permisos.';
@@ -99,12 +122,17 @@ export class App implements OnInit {
     this.error = '';
     this.api.login(this.loginForm).subscribe({
       next: (r: any) => {
+        this.cdr.markForCheck();
         localStorage.setItem('token', r.token);
+        localStorage.setItem('rol', r.rol);
+        this.loginForm.contrasena = '';
         this.mensaje = 'Inicio de sesión correcto.';
         this.vista = 'inicio';
-        this.cargarUsuarios();
+        this.usuarios = [];
+        if (this.esAdmin) this.cargarUsuarios();
       },
       error: (e: any) => {
+        this.cdr.markForCheck();
         this.error = e.error?.error || 'Correo o contraseña incorrectos.';
       }
     });
@@ -114,6 +142,7 @@ export class App implements OnInit {
     this.error = '';
     this.api.registrar(this.registroForm).subscribe({
       next: () => {
+        this.cdr.markForCheck();
         this.mensaje = 'Usuario registrado correctamente.';
         this.registroForm = {
           nombre: '', apellido: '', telefono: '',
@@ -121,6 +150,7 @@ export class App implements OnInit {
         };
       },
       error: (e: any) => {
+        this.cdr.markForCheck();
         this.error = e.error?.error || 'No se pudo registrar el usuario.';
       }
     });
@@ -128,6 +158,9 @@ export class App implements OnInit {
 
   cerrarSesion(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('rol');
+    this.usuarios = [];
+    this.nuevoUsuario();
     this.mostrar('inicio');
     this.mensaje = 'Sesión cerrada.';
   }
@@ -135,8 +168,8 @@ export class App implements OnInit {
   // --- MEMBRESÍAS ---
   cargarMembresias(): void {
     this.api.listarMembresias().subscribe({
-      next: (r: any[]) => this.membresias = r || [],
-      error: () => this.error = 'No se pudieron cargar las membresías.'
+      next: (r: any[]) => { this.membresias = r || []; this.cdr.markForCheck(); },
+      error: () => { this.error = 'No se pudieron cargar las membresías.'; this.cdr.markForCheck(); }
     });
   }
 
@@ -174,8 +207,8 @@ export class App implements OnInit {
   // --- PRODUCTOS ---
   cargarProductos(): void {
     this.api.listarProductos().subscribe({
-      next: (r: any[]) => this.productos = r || [],
-      error: () => this.error = 'No se pudieron cargar los productos.'
+      next: (r: any[]) => { this.productos = r || []; this.cdr.markForCheck(); },
+      error: () => { this.error = 'No se pudieron cargar los productos.'; this.cdr.markForCheck(); }
     });
   }
 
@@ -214,8 +247,8 @@ export class App implements OnInit {
   // --- RUTINAS ---
   cargarRutinas(): void {
     this.api.listarRutinas().subscribe({
-      next: (r: any[]) => this.rutinas = r || [],
-      error: () => this.error = 'No se pudieron cargar las rutinas.'
+      next: (r: any[]) => { this.rutinas = r || []; this.cdr.markForCheck(); },
+      error: () => { this.error = 'No se pudieron cargar las rutinas.'; this.cdr.markForCheck(); }
     });
   }
 
@@ -257,12 +290,16 @@ export class App implements OnInit {
   // --- PROMOCIONES ---
   cargarPromociones(): void {
     this.api.listarPromociones().subscribe({
-      next: (r: any[]) => this.promociones = r || [],
-      error: () => this.error = 'No se pudieron cargar las promociones.'
+      next: (r: any[]) => { this.promociones = r || []; this.cdr.markForCheck(); },
+      error: () => { this.error = 'No se pudieron cargar las promociones.'; this.cdr.markForCheck(); }
     });
   }
 
   guardarPromocion(): void {
+    if (this.promocionForm.fin < this.promocionForm.inicio) {
+      this.error = 'La fecha final no puede ser anterior a la inicial.';
+      return;
+    }
     const peticion = this.promocionForm.id
       ? this.api.actualizarPromocion(this.promocionForm.id, this.promocionForm)
       : this.api.crearPromocion(this.promocionForm);
@@ -301,9 +338,10 @@ export class App implements OnInit {
 
   // --- USUARIOS ---
   cargarUsuarios(): void {
+    if (!this.esAdmin) { this.usuarios = []; return; }
     this.api.listarUsuarios().subscribe({
-      next: (r: any[]) => this.usuarios = r || [],
-      error: () => this.error = 'No se pudieron cargar los usuarios. Inicia sesión como administrador.'
+      next: (r: any[]) => { this.usuarios = r || []; this.cdr.markForCheck(); },
+      error: () => { this.error = 'No se pudieron cargar los usuarios. Inicia sesión como administrador.'; this.cdr.markForCheck(); }
     });
   }
 

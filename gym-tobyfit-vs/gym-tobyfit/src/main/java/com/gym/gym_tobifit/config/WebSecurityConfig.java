@@ -64,6 +64,13 @@ public class WebSecurityConfig {
                                 "/api/promociones",
                                 "/api/promociones/**"
                         ).permitAll()
+                        .requestMatchers("/api/usuarios", "/api/usuarios/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/productos/**", "/api/membresias/**",
+                                "/api/rutinas/**", "/api/promociones/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/productos/**", "/api/membresias/**",
+                                "/api/rutinas/**", "/api/promociones/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/productos/**", "/api/membresias/**",
+                                "/api/rutinas/**", "/api/promociones/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling(exceptions -> exceptions
